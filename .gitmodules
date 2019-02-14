@@ -1,0 +1,6 @@
+[submodule "Vendor/FunctionalTableData"]
+	path = Vendor/FunctionalTableData
+	url = git@github.com:Shopify/FunctionalTableData.git
+[submodule "Vendor/HiveEngine"]
+	path = Vendor/HiveEngine
+	url = git@github.com:josephroqueca/hive-engine.git
