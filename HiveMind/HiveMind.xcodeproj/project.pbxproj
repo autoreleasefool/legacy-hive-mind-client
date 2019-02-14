@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA60EA042214E8ED00057F44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA032214E8ED00057F44 /* AppDelegate.swift */; };
+		CA60EA062214E8ED00057F44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA052214E8ED00057F44 /* ViewController.swift */; };
+		CA60EA0B2214E8EF00057F44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA60EA0A2214E8EF00057F44 /* Assets.xcassets */; };
+		CA60EA0E2214E8EF00057F44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60EA0C2214E8EF00057F44 /* LaunchScreen.storyboard */; };
+		CA60EA192214E8EF00057F44 /* HiveMindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA182214E8EF00057F44 /* HiveMindTests.swift */; };
+		CA60EA242214E8EF00057F44 /* HiveMindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA232214E8EF00057F44 /* HiveMindUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA60EA152214E8EF00057F44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60E9F82214E8ED00057F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA60E9FF2214E8ED00057F44;
+			remoteInfo = HiveMind;
+		};
+		CA60EA202214E8EF00057F44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60E9F82214E8ED00057F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA60E9FF2214E8ED00057F44;
+			remoteInfo = HiveMind;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA60EA002214E8ED00057F44 /* HiveMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA60EA032214E8ED00057F44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA60EA052214E8ED00057F44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA60EA0A2214E8EF00057F44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA60EA0D2214E8EF00057F44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA60EA0F2214E8EF00057F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA60EA142214E8EF00057F44 /* HiveMindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiveMindTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA60EA182214E8EF00057F44 /* HiveMindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveMindTests.swift; sourceTree = "<group>"; };
+		CA60EA1A2214E8EF00057F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA60EA1F2214E8EF00057F44 /* HiveMindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiveMindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA60EA232214E8EF00057F44 /* HiveMindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveMindUITests.swift; sourceTree = "<group>"; };
+		CA60EA252214E8EF00057F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA60E9FD2214E8ED00057F44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA60EA112214E8EF00057F44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA60EA1C2214E8EF00057F44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA60E9F72214E8ED00057F44 = {
+			isa = PBXGroup;
+			children = (
+				CA60EA022214E8ED00057F44 /* HiveMind */,
+				CA60EA172214E8EF00057F44 /* HiveMindTests */,
+				CA60EA222214E8EF00057F44 /* HiveMindUITests */,
+				CA60EA012214E8ED00057F44 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA60EA012214E8ED00057F44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA002214E8ED00057F44 /* HiveMind.app */,
+				CA60EA142214E8EF00057F44 /* HiveMindTests.xctest */,
+				CA60EA1F2214E8EF00057F44 /* HiveMindUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA60EA022214E8ED00057F44 /* HiveMind */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA0F2214E8EF00057F44 /* Info.plist */,
+				CA60EA322214E94900057F44 /* Resources */,
+				CA60EA312214E93000057F44 /* Source */,
+			);
+			path = HiveMind;
+			sourceTree = "<group>";
+		};
+		CA60EA172214E8EF00057F44 /* HiveMindTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA182214E8EF00057F44 /* HiveMindTests.swift */,
+				CA60EA1A2214E8EF00057F44 /* Info.plist */,
+			);
+			path = HiveMindTests;
+			sourceTree = "<group>";
+		};
+		CA60EA222214E8EF00057F44 /* HiveMindUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA232214E8EF00057F44 /* HiveMindUITests.swift */,
+				CA60EA252214E8EF00057F44 /* Info.plist */,
+			);
+			path = HiveMindUITests;
+			sourceTree = "<group>";
+		};
+		CA60EA312214E93000057F44 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA032214E8ED00057F44 /* AppDelegate.swift */,
+				CA60EA052214E8ED00057F44 /* ViewController.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CA60EA322214E94900057F44 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA0A2214E8EF00057F44 /* Assets.xcassets */,
+				CA60EA0C2214E8EF00057F44 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA60E9FF2214E8ED00057F44 /* HiveMind */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA60EA282214E8EF00057F44 /* Build configuration list for PBXNativeTarget "HiveMind" */;
+			buildPhases = (
+				CA60E9FC2214E8ED00057F44 /* Sources */,
+				CA60E9FD2214E8ED00057F44 /* Frameworks */,
+				CA60E9FE2214E8ED00057F44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HiveMind;
+			productName = HiveMind;
+			productReference = CA60EA002214E8ED00057F44 /* HiveMind.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA60EA132214E8EF00057F44 /* HiveMindTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA60EA2B2214E8EF00057F44 /* Build configuration list for PBXNativeTarget "HiveMindTests" */;
+			buildPhases = (
+				CA60EA102214E8EF00057F44 /* Sources */,
+				CA60EA112214E8EF00057F44 /* Frameworks */,
+				CA60EA122214E8EF00057F44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA60EA162214E8EF00057F44 /* PBXTargetDependency */,
+			);
+			name = HiveMindTests;
+			productName = HiveMindTests;
+			productReference = CA60EA142214E8EF00057F44 /* HiveMindTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CA60EA1E2214E8EF00057F44 /* HiveMindUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA60EA2E2214E8EF00057F44 /* Build configuration list for PBXNativeTarget "HiveMindUITests" */;
+			buildPhases = (
+				CA60EA1B2214E8EF00057F44 /* Sources */,
+				CA60EA1C2214E8EF00057F44 /* Frameworks */,
+				CA60EA1D2214E8EF00057F44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA60EA212214E8EF00057F44 /* PBXTargetDependency */,
+			);
+			name = HiveMindUITests;
+			productName = HiveMindUITests;
+			productReference = CA60EA1F2214E8EF00057F44 /* HiveMindUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA60E9F82214E8ED00057F44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Joseph Roque";
+				TargetAttributes = {
+					CA60E9FF2214E8ED00057F44 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					CA60EA132214E8EF00057F44 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = CA60E9FF2214E8ED00057F44;
+					};
+					CA60EA1E2214E8EF00057F44 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = CA60E9FF2214E8ED00057F44;
+					};
+				};
+			};
+			buildConfigurationList = CA60E9FB2214E8ED00057F44 /* Build configuration list for PBXProject "HiveMind" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA60E9F72214E8ED00057F44;
+			productRefGroup = CA60EA012214E8ED00057F44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA60E9FF2214E8ED00057F44 /* HiveMind */,
+				CA60EA132214E8EF00057F44 /* HiveMindTests */,
+				CA60EA1E2214E8EF00057F44 /* HiveMindUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA60E9FE2214E8ED00057F44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA60EA0E2214E8EF00057F44 /* LaunchScreen.storyboard in Resources */,
+				CA60EA0B2214E8EF00057F44 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA60EA122214E8EF00057F44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA60EA1D2214E8EF00057F44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA60E9FC2214E8ED00057F44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA60EA062214E8ED00057F44 /* ViewController.swift in Sources */,
+				CA60EA042214E8ED00057F44 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA60EA102214E8EF00057F44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA60EA192214E8EF00057F44 /* HiveMindTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA60EA1B2214E8EF00057F44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA60EA242214E8EF00057F44 /* HiveMindUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA60EA162214E8EF00057F44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA60E9FF2214E8ED00057F44 /* HiveMind */;
+			targetProxy = CA60EA152214E8EF00057F44 /* PBXContainerItemProxy */;
+		};
+		CA60EA212214E8EF00057F44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA60E9FF2214E8ED00057F44 /* HiveMind */;
+			targetProxy = CA60EA202214E8EF00057F44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA60EA0C2214E8EF00057F44 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA60EA0D2214E8EF00057F44 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA60EA262214E8EF00057F44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA60EA272214E8EF00057F44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA60EA292214E8EF00057F44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3UBRXR267C;
+				INFOPLIST_FILE = HiveMind/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveMind;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA60EA2A2214E8EF00057F44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3UBRXR267C;
+				INFOPLIST_FILE = HiveMind/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveMind;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CA60EA2C2214E8EF00057F44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3UBRXR267C;
+				INFOPLIST_FILE = HiveMindTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveMindTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiveMind.app/HiveMind";
+			};
+			name = Debug;
+		};
+		CA60EA2D2214E8EF00057F44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3UBRXR267C;
+				INFOPLIST_FILE = HiveMindTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveMindTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiveMind.app/HiveMind";
+			};
+			name = Release;
+		};
+		CA60EA2F2214E8EF00057F44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3UBRXR267C;
+				INFOPLIST_FILE = HiveMindUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveMindUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HiveMind;
+			};
+			name = Debug;
+		};
+		CA60EA302214E8EF00057F44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3UBRXR267C;
+				INFOPLIST_FILE = HiveMindUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveMindUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HiveMind;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA60E9FB2214E8ED00057F44 /* Build configuration list for PBXProject "HiveMind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60EA262214E8EF00057F44 /* Debug */,
+				CA60EA272214E8EF00057F44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA60EA282214E8EF00057F44 /* Build configuration list for PBXNativeTarget "HiveMind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60EA292214E8EF00057F44 /* Debug */,
+				CA60EA2A2214E8EF00057F44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA60EA2B2214E8EF00057F44 /* Build configuration list for PBXNativeTarget "HiveMindTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60EA2C2214E8EF00057F44 /* Debug */,
+				CA60EA2D2214E8EF00057F44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA60EA2E2214E8EF00057F44 /* Build configuration list for PBXNativeTarget "HiveMindUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60EA2F2214E8EF00057F44 /* Debug */,
+				CA60EA302214E8EF00057F44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA60E9F82214E8ED00057F44 /* Project object */;
+}
