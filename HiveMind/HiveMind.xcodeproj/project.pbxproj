@@ -13,6 +13,48 @@
 		CA60EA0E2214E8EF00057F44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA60EA0C2214E8EF00057F44 /* LaunchScreen.storyboard */; };
 		CA60EA192214E8EF00057F44 /* HiveMindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA182214E8EF00057F44 /* HiveMindTests.swift */; };
 		CA60EA242214E8EF00057F44 /* HiveMindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA232214E8EF00057F44 /* HiveMindUITests.swift */; };
+		CA60EA492214EF0500057F44 /* Unit+Ant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA392214EF0500057F44 /* Unit+Ant.swift */; };
+		CA60EA4A2214EF0500057F44 /* Unit+Ant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA392214EF0500057F44 /* Unit+Ant.swift */; };
+		CA60EA4B2214EF0500057F44 /* Unit+Ant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA392214EF0500057F44 /* Unit+Ant.swift */; };
+		CA60EA4C2214EF0500057F44 /* Unit+LadyBug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3A2214EF0500057F44 /* Unit+LadyBug.swift */; };
+		CA60EA4D2214EF0500057F44 /* Unit+LadyBug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3A2214EF0500057F44 /* Unit+LadyBug.swift */; };
+		CA60EA4E2214EF0500057F44 /* Unit+LadyBug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3A2214EF0500057F44 /* Unit+LadyBug.swift */; };
+		CA60EA4F2214EF0500057F44 /* Unit+Beetle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3B2214EF0500057F44 /* Unit+Beetle.swift */; };
+		CA60EA502214EF0500057F44 /* Unit+Beetle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3B2214EF0500057F44 /* Unit+Beetle.swift */; };
+		CA60EA512214EF0500057F44 /* Unit+Beetle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3B2214EF0500057F44 /* Unit+Beetle.swift */; };
+		CA60EA522214EF0500057F44 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3C2214EF0500057F44 /* Unit.swift */; };
+		CA60EA532214EF0500057F44 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3C2214EF0500057F44 /* Unit.swift */; };
+		CA60EA542214EF0500057F44 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3C2214EF0500057F44 /* Unit.swift */; };
+		CA60EA552214EF0500057F44 /* Unit+Queen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3D2214EF0500057F44 /* Unit+Queen.swift */; };
+		CA60EA562214EF0500057F44 /* Unit+Queen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3D2214EF0500057F44 /* Unit+Queen.swift */; };
+		CA60EA572214EF0500057F44 /* Unit+Queen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3D2214EF0500057F44 /* Unit+Queen.swift */; };
+		CA60EA582214EF0500057F44 /* Unit+Spider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3E2214EF0500057F44 /* Unit+Spider.swift */; };
+		CA60EA592214EF0500057F44 /* Unit+Spider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3E2214EF0500057F44 /* Unit+Spider.swift */; };
+		CA60EA5A2214EF0500057F44 /* Unit+Spider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3E2214EF0500057F44 /* Unit+Spider.swift */; };
+		CA60EA5B2214EF0500057F44 /* Unit+PillBug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3F2214EF0500057F44 /* Unit+PillBug.swift */; };
+		CA60EA5C2214EF0500057F44 /* Unit+PillBug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3F2214EF0500057F44 /* Unit+PillBug.swift */; };
+		CA60EA5D2214EF0500057F44 /* Unit+PillBug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA3F2214EF0500057F44 /* Unit+PillBug.swift */; };
+		CA60EA5E2214EF0500057F44 /* Unit+Hopper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA402214EF0500057F44 /* Unit+Hopper.swift */; };
+		CA60EA5F2214EF0500057F44 /* Unit+Hopper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA402214EF0500057F44 /* Unit+Hopper.swift */; };
+		CA60EA602214EF0500057F44 /* Unit+Hopper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA402214EF0500057F44 /* Unit+Hopper.swift */; };
+		CA60EA612214EF0500057F44 /* Unit+Mosquito.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA412214EF0500057F44 /* Unit+Mosquito.swift */; };
+		CA60EA622214EF0500057F44 /* Unit+Mosquito.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA412214EF0500057F44 /* Unit+Mosquito.swift */; };
+		CA60EA632214EF0500057F44 /* Unit+Mosquito.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA412214EF0500057F44 /* Unit+Mosquito.swift */; };
+		CA60EA642214EF0500057F44 /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA432214EF0500057F44 /* Movement.swift */; };
+		CA60EA652214EF0500057F44 /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA432214EF0500057F44 /* Movement.swift */; };
+		CA60EA662214EF0500057F44 /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA432214EF0500057F44 /* Movement.swift */; };
+		CA60EA672214EF0500057F44 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA442214EF0500057F44 /* GameState.swift */; };
+		CA60EA682214EF0500057F44 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA442214EF0500057F44 /* GameState.swift */; };
+		CA60EA692214EF0500057F44 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA442214EF0500057F44 /* GameState.swift */; };
+		CA60EA6A2214EF0500057F44 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA452214EF0500057F44 /* Player.swift */; };
+		CA60EA6B2214EF0500057F44 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA452214EF0500057F44 /* Player.swift */; };
+		CA60EA6C2214EF0500057F44 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA452214EF0500057F44 /* Player.swift */; };
+		CA60EA6D2214EF0500057F44 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA462214EF0500057F44 /* Position.swift */; };
+		CA60EA6E2214EF0500057F44 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA462214EF0500057F44 /* Position.swift */; };
+		CA60EA6F2214EF0500057F44 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA462214EF0500057F44 /* Position.swift */; };
+		CA60EA702214EF0500057F44 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA482214EF0500057F44 /* Collection+Extensions.swift */; };
+		CA60EA712214EF0500057F44 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA482214EF0500057F44 /* Collection+Extensions.swift */; };
+		CA60EA722214EF0500057F44 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA482214EF0500057F44 /* Collection+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +87,20 @@
 		CA60EA1F2214E8EF00057F44 /* HiveMindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiveMindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA60EA232214E8EF00057F44 /* HiveMindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveMindUITests.swift; sourceTree = "<group>"; };
 		CA60EA252214E8EF00057F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA60EA392214EF0500057F44 /* Unit+Ant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Ant.swift"; sourceTree = "<group>"; };
+		CA60EA3A2214EF0500057F44 /* Unit+LadyBug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+LadyBug.swift"; sourceTree = "<group>"; };
+		CA60EA3B2214EF0500057F44 /* Unit+Beetle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Beetle.swift"; sourceTree = "<group>"; };
+		CA60EA3C2214EF0500057F44 /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		CA60EA3D2214EF0500057F44 /* Unit+Queen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Queen.swift"; sourceTree = "<group>"; };
+		CA60EA3E2214EF0500057F44 /* Unit+Spider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Spider.swift"; sourceTree = "<group>"; };
+		CA60EA3F2214EF0500057F44 /* Unit+PillBug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+PillBug.swift"; sourceTree = "<group>"; };
+		CA60EA402214EF0500057F44 /* Unit+Hopper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Hopper.swift"; sourceTree = "<group>"; };
+		CA60EA412214EF0500057F44 /* Unit+Mosquito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unit+Mosquito.swift"; sourceTree = "<group>"; };
+		CA60EA432214EF0500057F44 /* Movement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
+		CA60EA442214EF0500057F44 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		CA60EA452214EF0500057F44 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		CA60EA462214EF0500057F44 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		CA60EA482214EF0500057F44 /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +134,7 @@
 				CA60EA022214E8ED00057F44 /* HiveMind */,
 				CA60EA172214E8EF00057F44 /* HiveMindTests */,
 				CA60EA222214E8EF00057F44 /* HiveMindUITests */,
+				CA60EA332214ECBE00057F44 /* HiveEngine */,
 				CA60EA012214E8ED00057F44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,6 +193,68 @@
 				CA60EA0C2214E8EF00057F44 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CA60EA332214ECBE00057F44 /* HiveEngine */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA362214EF0500057F44 /* Sources */,
+			);
+			path = HiveEngine;
+			sourceTree = "<group>";
+		};
+		CA60EA362214EF0500057F44 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA372214EF0500057F44 /* HiveEngine */,
+			);
+			name = Sources;
+			path = ../../Vendor/HiveEngine/Sources;
+			sourceTree = "<group>";
+		};
+		CA60EA372214EF0500057F44 /* HiveEngine */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA382214EF0500057F44 /* Unit */,
+				CA60EA422214EF0500057F44 /* State */,
+				CA60EA472214EF0500057F44 /* Extensions */,
+			);
+			path = HiveEngine;
+			sourceTree = "<group>";
+		};
+		CA60EA382214EF0500057F44 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA392214EF0500057F44 /* Unit+Ant.swift */,
+				CA60EA3A2214EF0500057F44 /* Unit+LadyBug.swift */,
+				CA60EA3B2214EF0500057F44 /* Unit+Beetle.swift */,
+				CA60EA3C2214EF0500057F44 /* Unit.swift */,
+				CA60EA3D2214EF0500057F44 /* Unit+Queen.swift */,
+				CA60EA3E2214EF0500057F44 /* Unit+Spider.swift */,
+				CA60EA3F2214EF0500057F44 /* Unit+PillBug.swift */,
+				CA60EA402214EF0500057F44 /* Unit+Hopper.swift */,
+				CA60EA412214EF0500057F44 /* Unit+Mosquito.swift */,
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
+		CA60EA422214EF0500057F44 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA432214EF0500057F44 /* Movement.swift */,
+				CA60EA442214EF0500057F44 /* GameState.swift */,
+				CA60EA452214EF0500057F44 /* Player.swift */,
+				CA60EA462214EF0500057F44 /* Position.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		CA60EA472214EF0500057F44 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA482214EF0500057F44 /* Collection+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +387,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA60EA4C2214EF0500057F44 /* Unit+LadyBug.swift in Sources */,
+				CA60EA492214EF0500057F44 /* Unit+Ant.swift in Sources */,
+				CA60EA672214EF0500057F44 /* GameState.swift in Sources */,
+				CA60EA5B2214EF0500057F44 /* Unit+PillBug.swift in Sources */,
+				CA60EA6A2214EF0500057F44 /* Player.swift in Sources */,
 				CA60EA062214E8ED00057F44 /* ViewController.swift in Sources */,
+				CA60EA522214EF0500057F44 /* Unit.swift in Sources */,
+				CA60EA5E2214EF0500057F44 /* Unit+Hopper.swift in Sources */,
+				CA60EA6D2214EF0500057F44 /* Position.swift in Sources */,
+				CA60EA612214EF0500057F44 /* Unit+Mosquito.swift in Sources */,
 				CA60EA042214E8ED00057F44 /* AppDelegate.swift in Sources */,
+				CA60EA642214EF0500057F44 /* Movement.swift in Sources */,
+				CA60EA552214EF0500057F44 /* Unit+Queen.swift in Sources */,
+				CA60EA702214EF0500057F44 /* Collection+Extensions.swift in Sources */,
+				CA60EA582214EF0500057F44 /* Unit+Spider.swift in Sources */,
+				CA60EA4F2214EF0500057F44 /* Unit+Beetle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +410,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA60EA6E2214EF0500057F44 /* Position.swift in Sources */,
+				CA60EA652214EF0500057F44 /* Movement.swift in Sources */,
+				CA60EA532214EF0500057F44 /* Unit.swift in Sources */,
+				CA60EA592214EF0500057F44 /* Unit+Spider.swift in Sources */,
+				CA60EA502214EF0500057F44 /* Unit+Beetle.swift in Sources */,
+				CA60EA562214EF0500057F44 /* Unit+Queen.swift in Sources */,
+				CA60EA6B2214EF0500057F44 /* Player.swift in Sources */,
+				CA60EA622214EF0500057F44 /* Unit+Mosquito.swift in Sources */,
+				CA60EA4D2214EF0500057F44 /* Unit+LadyBug.swift in Sources */,
 				CA60EA192214E8EF00057F44 /* HiveMindTests.swift in Sources */,
+				CA60EA5F2214EF0500057F44 /* Unit+Hopper.swift in Sources */,
+				CA60EA682214EF0500057F44 /* GameState.swift in Sources */,
+				CA60EA4A2214EF0500057F44 /* Unit+Ant.swift in Sources */,
+				CA60EA5C2214EF0500057F44 /* Unit+PillBug.swift in Sources */,
+				CA60EA712214EF0500057F44 /* Collection+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +432,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA60EA6F2214EF0500057F44 /* Position.swift in Sources */,
+				CA60EA662214EF0500057F44 /* Movement.swift in Sources */,
+				CA60EA542214EF0500057F44 /* Unit.swift in Sources */,
+				CA60EA5A2214EF0500057F44 /* Unit+Spider.swift in Sources */,
+				CA60EA512214EF0500057F44 /* Unit+Beetle.swift in Sources */,
+				CA60EA572214EF0500057F44 /* Unit+Queen.swift in Sources */,
+				CA60EA6C2214EF0500057F44 /* Player.swift in Sources */,
+				CA60EA632214EF0500057F44 /* Unit+Mosquito.swift in Sources */,
+				CA60EA4E2214EF0500057F44 /* Unit+LadyBug.swift in Sources */,
 				CA60EA242214E8EF00057F44 /* HiveMindUITests.swift in Sources */,
+				CA60EA602214EF0500057F44 /* Unit+Hopper.swift in Sources */,
+				CA60EA692214EF0500057F44 /* GameState.swift in Sources */,
+				CA60EA4B2214EF0500057F44 /* Unit+Ant.swift in Sources */,
+				CA60EA5D2214EF0500057F44 /* Unit+PillBug.swift in Sources */,
+				CA60EA722214EF0500057F44 /* Collection+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
