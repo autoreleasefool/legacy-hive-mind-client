@@ -87,7 +87,9 @@ class GameViewController: UIViewController {
 
 extension GameViewController: GameActionable {
 	func selected(movement: Movement) {
-
+		self.state!.state = self.state!.state.apply(movement)
+		// TODO: launch request
+		self.render()
 	}
 
 	func selected(movementType: MovementType) {
@@ -97,6 +99,12 @@ extension GameViewController: GameActionable {
 
 	func cancel() {
 		self.selectedMovementType = nil
+		self.render()
+	}
+
+	func moveAccepted(movement: Movement) {
+		self.state!.state = self.state!.state.apply(movement)
+		self.state?.aiMove = nil
 		self.render()
 	}
 }

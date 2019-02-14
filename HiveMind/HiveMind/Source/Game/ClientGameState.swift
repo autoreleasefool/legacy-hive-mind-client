@@ -11,7 +11,8 @@ import Foundation
 struct ClientGameState {
 
 	let aiPlayer: Player
-	private(set) var state: GameState
+	var aiMove: Movement? = nil
+	var state: GameState
 
 	init(aiPlayer: Player) {
 		self.aiPlayer = aiPlayer

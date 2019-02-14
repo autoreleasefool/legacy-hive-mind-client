@@ -43,7 +43,8 @@ struct GameSettingsBuilder {
 
 		return [TableSection(
 			key: Keys.settings.rawValue,
-			rows: [colorCell, turnCell]
+			rows: [colorCell, turnCell],
+			style: SectionStyle(separators: .default)
 		)]
 	}
 }

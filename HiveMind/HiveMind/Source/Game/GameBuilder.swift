@@ -13,6 +13,7 @@ protocol GameActionable: class {
 	func selected(movementType: MovementType)
 	func selected(movement: Movement)
 	func cancel()
+	func moveAccepted(movement: Movement)
 }
 
 enum MovementType: String, CaseIterable {
@@ -37,16 +38,45 @@ struct GameBuilder {
 		case movementTypes
 		case movements
 		case cancel
+		case ai
 	}
 
 	static func sections(state: ClientGameState?, selectedMovementType: MovementType?, actionable: GameActionable) -> [TableSection] {
 		guard let state = state else { return [] }
 
-		if let movementType = selectedMovementType {
+		if state.isAITurn {
+			return aiSection(state: state, actionable: actionable)
+		} else if let movementType = selectedMovementType {
 			return movementsSection(state: state, selectedMovementType: movementType, actionable: actionable)
 		} else {
 			return movementTypesSection(actionable: actionable)
 		}
+	}
+
+	static func aiSection(state: ClientGameState, actionable: GameActionable) -> [TableSection] {
+		var rows: [CellConfigType] = []
+		if let aiMove = state.aiMove {
+			rows.append(
+				MovementCell(
+					key: "\(Keys.movements)-\(aiMove)",
+					style: CellStyle(bottomSeparator: .full, separatorColor: Colors.divider, highlight: true),
+					actions: CellActions(selectionAction: { [weak actionable] _ in
+						actionable?.moveAccepted(movement: aiMove)
+						return .deselected
+					}),
+					state: MovementCellState(movement: aiMove),
+					cellUpdater: MovementCellState.updateView
+				)
+			)
+		} else {
+			rows.append(LabelCell(key: Keys.ai.rawValue, state: LabelState(title: "AI is thinking...", fontSize: Text.Size.title), cellUpdater: LabelState.updateView))
+		}
+
+		return [TableSection(
+			key: Keys.ai,
+			rows: rows,
+			style: SectionStyle(separators: .default)
+		)]
 	}
 
 	static func movementTypesSection(actionable: GameActionable) -> [TableSection] {
@@ -103,7 +133,8 @@ struct GameBuilder {
 		return [
 			TableSection(
 				key: Keys.movements,
-				rows: rows
+				rows: rows,
+				style: SectionStyle(separators: .default)
 			)
 		]
 	}
