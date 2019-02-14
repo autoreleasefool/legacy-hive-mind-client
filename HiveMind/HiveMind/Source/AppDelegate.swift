@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FunctionalTableData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,10 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //		navigationController.navigationBar.tintColor = Colors.Text.primaryWhite
 //		navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.Text.primaryWhite]
 //
-//		CellStyle.defaultBackgroundColor = Colors.listItem
-//		CellStyle.defaultSelectionColor = Colors.background
+		CellStyle.defaultBackgroundColor = Colors.background
 
-		self.window?.rootViewController = UINavigationController(rootViewController: UIViewController())
+		self.window?.rootViewController = HomeViewController()
 		self.window?.makeKeyAndVisible()
 		return true
 	}
