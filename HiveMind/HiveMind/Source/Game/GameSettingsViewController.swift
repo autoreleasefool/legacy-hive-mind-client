@@ -16,7 +16,7 @@ class GameSettingsViewController: UIViewController {
 	private let tableView = UITableView()
 	private let tableData = FunctionalTableData()
 
-	private var aiIsFirst: Bool = true
+	private var aiIsFirst: Bool = false
 
 	init(completion: (@escaping (_ state: ClientGameState) -> Void)) {
 		self.completion = completion

@@ -59,7 +59,6 @@
 		CA60EA7B2214FAF300057F44 /* ClientGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA7A2214FAF300057F44 /* ClientGameState.swift */; };
 		CA60EA7D2214FC5200057F44 /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA7C2214FC5200057F44 /* GameSettingsViewController.swift */; };
 		CA60EA802214FCD600057F44 /* GameBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA7F2214FCD600057F44 /* GameBuilder.swift */; };
-		CA60EA832214FCE800057F44 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA60EA822214FCE800057F44 /* FunctionalTableData.framework */; };
 		CA60EA852214FD0D00057F44 /* GameSettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA842214FD0D00057F44 /* GameSettingsBuilder.swift */; };
 		CA60EA8922150C4C00057F44 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA8822150C4C00057F44 /* SwitchCell.swift */; };
 		CA60EA8B221516BD00057F44 /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA8A221516BD00057F44 /* ValueCell.swift */; };
@@ -71,6 +70,9 @@
 		CA60EA982215298100057F44 /* Unit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA972215298100057F44 /* Unit+Extensions.swift */; };
 		CA60EA9A221529C400057F44 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA99221529C400057F44 /* String+Extensions.swift */; };
 		CA60EA9C22152C5B00057F44 /* Position+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA9B22152C5B00057F44 /* Position+Extensions.swift */; };
+		CA60EAA02215950300057F44 /* HiveMindAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA9F2215950300057F44 /* HiveMindAPI.swift */; };
+		CA60EAA12215DC9900057F44 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA60EA822214FCE800057F44 /* FunctionalTableData.framework */; };
+		CA60EAA22215DC9900057F44 /* FunctionalTableData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA60EA822214FCE800057F44 /* FunctionalTableData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,20 @@
 			remoteInfo = HiveMind;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA60EAA32215DC9900057F44 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CA60EAA22215DC9900057F44 /* FunctionalTableData.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CA60EA002214E8ED00057F44 /* HiveMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +149,7 @@
 		CA60EA972215298100057F44 /* Unit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unit+Extensions.swift"; sourceTree = "<group>"; };
 		CA60EA99221529C400057F44 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		CA60EA9B22152C5B00057F44 /* Position+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Position+Extensions.swift"; sourceTree = "<group>"; };
+		CA60EA9F2215950300057F44 /* HiveMindAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveMindAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA60EA832214FCE800057F44 /* FunctionalTableData.framework in Frameworks */,
+				CA60EAA12215DC9900057F44 /* FunctionalTableData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +231,7 @@
 		CA60EA312214E93000057F44 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CA60EA9E221594F200057F44 /* AI */,
 				CA60EA762214F03F00057F44 /* Cells */,
 				CA60EA8C2215199200057F44 /* Extensions */,
 				CA60EA772214F04E00057F44 /* Game */,
@@ -346,6 +364,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CA60EA9E221594F200057F44 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				CA60EA9F2215950300057F44 /* HiveMindAPI.swift */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -356,6 +382,7 @@
 				CA60E9FC2214E8ED00057F44 /* Sources */,
 				CA60E9FD2214E8ED00057F44 /* Frameworks */,
 				CA60E9FE2214E8ED00057F44 /* Resources */,
+				CA60EAA32215DC9900057F44 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -502,6 +529,7 @@
 				CA60EA642214EF0500057F44 /* Movement.swift in Sources */,
 				CA60EA9C22152C5B00057F44 /* Position+Extensions.swift in Sources */,
 				CA60EA552214EF0500057F44 /* Unit+Queen.swift in Sources */,
+				CA60EAA02215950300057F44 /* HiveMindAPI.swift in Sources */,
 				CA60EA702214EF0500057F44 /* Collection+Extensions.swift in Sources */,
 				CA60EA582214EF0500057F44 /* Unit+Spider.swift in Sources */,
 				CA60EA852214FD0D00057F44 /* GameSettingsBuilder.swift in Sources */,

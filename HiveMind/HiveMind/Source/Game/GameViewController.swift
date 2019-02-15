@@ -56,13 +56,27 @@ class GameViewController: UIViewController {
 
 	private func beginGame() {
 		render()
+
+		if self.state!.isAITurn {
+			HiveMindAPI.play(state: self.state!.state) { [weak self] movement, error in
+				guard let self = self else { return }
+				if let error = error {
+					print("Error: \(error)")
+				}
+
+				if let movement = movement {
+					self.state!.aiMove = movement
+					self.render()
+				}
+			}
+		}
 	}
 
 	private func openGameSettings() {
 		let settings = GameSettingsViewController() { [weak self] state in
 			self?.state = state
 			self?.settingsOpen = false
-			self?.render()
+			self?.beginGame()
 		}
 
 		self.settingsOpen = true
@@ -88,7 +102,18 @@ class GameViewController: UIViewController {
 extension GameViewController: GameActionable {
 	func selected(movement: Movement) {
 		self.state!.state = self.state!.state.apply(movement)
-		// TODO: launch request
+		HiveMindAPI.play(state: self.state!.state) { [weak self] movement, error in
+			guard let self = self else { return }
+			if let error = error {
+				print("Error: \(error)")
+			}
+
+			if let movement = movement {
+				self.state!.aiMove = movement
+				self.render()
+			}
+		}
+
 		self.render()
 	}
 
