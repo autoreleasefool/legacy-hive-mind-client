@@ -42,7 +42,7 @@ class SwitchCellView: UIView {
 			stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
 
 			title.topAnchor.constraint(equalTo: stackView.topAnchor),
-			title.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
+			title.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
 			])
 	}
 

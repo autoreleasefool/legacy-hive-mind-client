@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-	private var winner: Player? = nil
+	private var winner: Player?
 
 	private let winnerImage = UIImageView()
 	private let winnerName = UILabel()

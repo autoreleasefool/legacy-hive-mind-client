@@ -48,7 +48,7 @@ class MovementCellView: UIView {
 			unit.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: Margins.Size.base),
 
 			position.topAnchor.constraint(equalTo: unit.bottomAnchor, constant: Margins.Size.small),
-			position.leadingAnchor.constraint(equalTo: unit.leadingAnchor),
+			position.leadingAnchor.constraint(equalTo: unit.leadingAnchor)
 			])
 	}
 

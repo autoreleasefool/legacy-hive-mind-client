@@ -32,7 +32,6 @@ extension Movement {
 	}
 }
 
-
 struct GameBuilder {
 	enum Keys: String {
 		case movementTypes

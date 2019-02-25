@@ -13,9 +13,9 @@ class GameViewController: UIViewController {
 
 	private let endGameCallback: (_ winner: Player) -> Void
 
-	private var state: ClientGameState? = nil
+	private var state: ClientGameState?
 	private var settingsOpen: Bool = false
-	private var selectedMovementType: MovementType? = nil
+	private var selectedMovementType: MovementType?
 
 	private let tableView = UITableView()
 	private let tableData = FunctionalTableData()
@@ -41,7 +41,7 @@ class GameViewController: UIViewController {
 			tableView.topAnchor.constraint(equalTo: view.topAnchor),
 			tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 			tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 			])
 	}
 
@@ -73,7 +73,7 @@ class GameViewController: UIViewController {
 	}
 
 	private func openGameSettings() {
-		let settings = GameSettingsViewController() { [weak self] state in
+		let settings = GameSettingsViewController { [weak self] state in
 			self?.state = state
 			self?.settingsOpen = false
 			self?.beginGame()

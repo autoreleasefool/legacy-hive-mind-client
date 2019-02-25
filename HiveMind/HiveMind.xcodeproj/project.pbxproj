@@ -62,7 +62,6 @@
 		CA60EA852214FD0D00057F44 /* GameSettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA842214FD0D00057F44 /* GameSettingsBuilder.swift */; };
 		CA60EA8922150C4C00057F44 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA8822150C4C00057F44 /* SwitchCell.swift */; };
 		CA60EA8B221516BD00057F44 /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA8A221516BD00057F44 /* ValueCell.swift */; };
-		CA60EA8E221519A700057F44 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA8D221519A700057F44 /* UIFont+Extensions.swift */; };
 		CA60EA90221519BD00057F44 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA8F221519BD00057F44 /* Colors.swift */; };
 		CA60EA92221519D500057F44 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA91221519D500057F44 /* Sizes.swift */; };
 		CA60EA942215270A00057F44 /* LabelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA932215270A00057F44 /* LabelState.swift */; };
@@ -141,7 +140,6 @@
 		CA60EA842214FD0D00057F44 /* GameSettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsBuilder.swift; sourceTree = "<group>"; };
 		CA60EA8822150C4C00057F44 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		CA60EA8A221516BD00057F44 /* ValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueCell.swift; sourceTree = "<group>"; };
-		CA60EA8D221519A700057F44 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		CA60EA8F221519BD00057F44 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CA60EA91221519D500057F44 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		CA60EA932215270A00057F44 /* LabelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelState.swift; sourceTree = "<group>"; };
@@ -358,7 +356,6 @@
 			children = (
 				CA60EA9B22152C5B00057F44 /* Position+Extensions.swift */,
 				CA60EA99221529C400057F44 /* String+Extensions.swift */,
-				CA60EA8D221519A700057F44 /* UIFont+Extensions.swift */,
 				CA60EA972215298100057F44 /* Unit+Extensions.swift */,
 			);
 			path = Extensions;
@@ -517,7 +514,6 @@
 				CA60EA5B2214EF0500057F44 /* Unit+PillBug.swift in Sources */,
 				CA60EA6A2214EF0500057F44 /* Player.swift in Sources */,
 				CA60EA90221519BD00057F44 /* Colors.swift in Sources */,
-				CA60EA8E221519A700057F44 /* UIFont+Extensions.swift in Sources */,
 				CA60EA92221519D500057F44 /* Sizes.swift in Sources */,
 				CA60EA522214EF0500057F44 /* Unit.swift in Sources */,
 				CA60EA982215298100057F44 /* Unit+Extensions.swift in Sources */,

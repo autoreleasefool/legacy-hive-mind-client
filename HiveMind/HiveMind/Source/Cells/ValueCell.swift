@@ -46,7 +46,7 @@ class ValueCellView: UIView {
 			title.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
 
 			subtitle.topAnchor.constraint(equalTo: stackView.topAnchor),
-			subtitle.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
+			subtitle.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
 			])
 	}
 

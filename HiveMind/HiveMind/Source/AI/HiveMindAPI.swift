@@ -40,7 +40,7 @@ struct HiveMindAPI {
 		//		request.addValue("application/json", forHTTPHeaderField: "Accept")
 
 		//create dataTask using the session object to send data to the server
-		let task = session.dataTask(with: request, completionHandler: { data, response, error in
+		let task = session.dataTask(with: request, completionHandler: { data, _, error in
 
 			guard error == nil else {
 				completion(nil, error)
@@ -67,5 +67,4 @@ struct HiveMindAPI {
 
 		task.resume()
 	}
-
 }
