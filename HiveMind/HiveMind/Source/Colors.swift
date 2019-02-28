@@ -8,6 +8,25 @@
 
 import UIKit
 
+public struct Colors {
+
+	struct Text {
+		static let body: UIColor = .white
+		static let caption = UIColor(hexString: "#FFFFFF", alpha: 0.7)
+		static let action = Colors.primary
+
+		struct NavigationBar {
+			static let title: UIColor = .white
+			static let components: UIColor = UIColor(hexString: "#FFFFFF", alpha: 0.7)
+		}
+	}
+
+	static let primary = UIColor(hexString: "#EE5253")
+	static let primaryBackground = UIColor(hexString: "#222F3E")
+	static let secondary = UIColor(hexString: "#576574")
+	static let separator = Colors.secondary
+}
+
 extension UIColor {
 	convenience init(hexString: String, alpha: CGFloat = 1.0) {
 		var hexInt: UInt32 = 0
@@ -21,16 +40,4 @@ extension UIColor {
 
 		self.init(red: red, green: green, blue: blue, alpha: alpha)
 	}
-}
-
-struct Colors {
-
-	struct Text {
-		static let body: UIColor = .black
-		static let caption = UIColor(hexString: "#333333")
-	}
-
-	static let background = UIColor(hexString: "#FFFFFF")
-	static let listItem = UIColor(hexString: "#F5F5F5")
-	static let divider = UIColor(hexString: "#000000", alpha: 0.2)
 }

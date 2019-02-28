@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>HiveMind - Easy</string>
+		<key>description</key>
+		<string>The HiveMind AI, set to its easiest difficulty.</string>
+		<key>iconName</key>
+		<string>White Ant</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>HiveMind - Medium</string>
+		<key>description</key>
+		<string>The HiveMind AI, set to a medium difficulty. A little more challenging, but still beatable!</string>
+		<key>iconName</key>
+		<string>White Beetle</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>HiveMind - Hard</string>
+		<key>description</key>
+		<string>The HiveMind AI, with a nearly impossible to beat difficulty. Good luck.</string>
+		<key>iconName</key>
+		<string>White Queen</string>
+	</dict>
+</array>
+</plist>

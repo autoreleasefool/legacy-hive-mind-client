@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import HiveEngine
 
-extension Unit {
+extension HiveEngine.Unit {
 	var image: UIImage {
-		return UIImage(named: "\(owner.rawValue.capitalizeFirst()) \(`class`.rawValue.capitalizeFirst())")!
+		return UIImage(named: "\(owner) \(`class`)")!
 	}
 }

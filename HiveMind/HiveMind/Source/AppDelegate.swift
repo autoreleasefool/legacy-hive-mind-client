@@ -15,10 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		CellStyle.defaultBackgroundColor = Colors.background
+		CellStyle.defaultBackgroundColor = Colors.primaryBackground
+		CellStyle.defaultSelectionColor = Colors.secondary
+
+		let rootController = UINavigationController(rootViewController: AIListViewController())
+		rootController.navigationBar.barTintColor = Colors.primary
+		rootController.navigationBar.tintColor = Colors.Text.NavigationBar.components
+		rootController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.Text.NavigationBar.title]
 
 		self.window = UIWindow(frame: UIScreen.main.bounds)
-		self.window?.rootViewController = HomeViewController()
+		self.window?.rootViewController = rootController
 		self.window?.makeKeyAndVisible()
 		return true
 	}
