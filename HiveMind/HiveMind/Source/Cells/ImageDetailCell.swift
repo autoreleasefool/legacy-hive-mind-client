@@ -52,14 +52,10 @@ class ImageDetailCellView: UIView {
 
 	private func setupViews() {
 		title.translatesAutoresizingMaskIntoConstraints = false
-		title.textColor = Colors.Text.body
-		title.font = title.font.withSize(Sizes.Text.subtitle)
 		addSubview(title)
 
 		desc.translatesAutoresizingMaskIntoConstraints = false
-		desc.textColor = Colors.Text.body
 		desc.numberOfLines = 0
-		desc.font = desc.font.withSize(Sizes.Text.body)
 		addSubview(desc)
 
 		image.translatesAutoresizingMaskIntoConstraints = false
@@ -99,13 +95,31 @@ struct ImageDetailCellState: Equatable {
 	private let title: String
 	private let description: String
 	private let icon: UIImage?
+	private let titleColor: UIColor
+	private let titleSize: CGFloat
+	private let descriptionColor: UIColor
+	private let descriptionSize: CGFloat
 	private let imageWidth: CGFloat?
 	private let imageHeight: CGFloat?
 
-	init(title: String, description: String, icon: UIImage?, imageWidth: CGFloat? = nil, imageHeight: CGFloat? = nil) {
+	init(
+		title: String,
+		description: String,
+		icon: UIImage?,
+		titleColor: UIColor = Colors.Text.body,
+		titleSize: CGFloat = Sizes.Text.title,
+		descriptionColor: UIColor = Colors.Text.caption,
+		descriptionSize: CGFloat = Sizes.Text.body,
+		imageWidth: CGFloat? = nil,
+		imageHeight: CGFloat? = nil
+	) {
 		self.title = title
 		self.description = description
 		self.icon = icon
+		self.titleColor = titleColor
+		self.titleSize = titleSize
+		self.descriptionColor = descriptionColor
+		self.descriptionSize = descriptionSize
 		self.imageWidth = imageWidth
 		self.imageHeight = imageHeight
 	}
@@ -117,7 +131,12 @@ struct ImageDetailCellState: Equatable {
 		}
 
 		view.title.text = state.title
+		view.title.textColor = state.titleColor
+		view.title.font = view.title.font.withSize(state.titleSize)
+
 		view.desc.text = state.description
+		view.desc.textColor = state.descriptionColor
+		view.desc.font = view.desc.font.withSize(state.descriptionSize)
 
 		if let icon = state.icon {
 			view.image.image = icon
