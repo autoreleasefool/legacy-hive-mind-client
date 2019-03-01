@@ -18,8 +18,6 @@ protocol GameplayActionable: class {
 }
 
 struct GameplayBuilder {
-	private static let selectedFontSize: CGFloat = 24.0
-	private static let titleFontSize: CGFloat = 20.0
 	private static let imageSize: CGFloat = 44.0
 
 	private enum Keys: String {
@@ -31,7 +29,6 @@ struct GameplayBuilder {
 			case unitCell
 			case prepositionLabel
 			case positionCell
-			case confirmButton
 		}
 
 		case movements
@@ -44,6 +41,10 @@ struct GameplayBuilder {
 
 		static func `for`(unit: HiveEngine.Unit) -> String {
 			return "\(Keys.PlayerSelection.unitCell).\(unit.identifier.uuidString)"
+		}
+
+		static func `for`(position: Position) -> String {
+			return "\(Keys.PlayerSelection.positionCell).\(position)"
 		}
 	}
 
@@ -72,8 +73,8 @@ struct GameplayBuilder {
 			case .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the"))
 			}
 
-			if let unitId = state.selectedUnitId, let unit = state.gameState.find(id: unitId) {
-				rows.append(Cells.unitCell(for: unit, selected: true, actionable: actionable))
+			if let unitId = state.selectedUnitId, let unit = state.gameState.find(id: unitId), let position = state.gameState.units[unit] {
+				rows.append(Cells.unitCell(for: unit, at: position, selected: true, actionable: actionable))
 
 				switch category {
 				case .move, .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.prepositionLabel.rawValue, text: "to"))
@@ -86,8 +87,8 @@ struct GameplayBuilder {
 	}
 
 	static func playerSection(state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection {
-		if let category = state.selectedMovementCategory {
-			if let unit = state.selectedUnitId {
+		if state.selectedMovementCategory != nil {
+			if state.selectedUnitId != nil {
 				return positionsSection(state: state, actionable: actionable)
 			}
 			return unitsSection(state: state, actionable: actionable)
@@ -111,15 +112,23 @@ struct GameplayBuilder {
 			return $0.movedUnit
 		})
 
-		let rows: [CellConfigType] = availableUnits.sorted(by: { $0.class.rawValue < $1.class.rawValue }).map {
-			return Cells.unitCell(for: $0, selected: false, actionable: actionable)
+		let rows: [CellConfigType] = availableUnits.sorted(by: { $0.class.rawValue < $1.class.rawValue }).compactMap {
+			guard let position = state.gameState.units[$0] else { return nil }
+			return Cells.unitCell(for: $0, at: position, selected: false, actionable: actionable)
 		}
 
-		return TableSection(key: Keys.units, rows: rows)
+		return TableSection(key: Keys.units, rows: rows, style: SectionStyle(separators: .default))
 	}
 
 	static func positionsSection(state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection {
-		return TableSection(key: Keys.positions, rows: [])
+		let availablePositions: Set<Position> = Set(state.gameState.availableMoves.compactMap {
+			guard MovementCategory.from($0) == state.selectedMovementCategory,
+				$0.movedUnit.identifier == state.selectedUnitId else { return nil }
+			return $0.targetPosition
+		})
+
+		let rows: [CellConfigType] = availablePositions.sorted(by: Position.naturalSort).map { Cells.positionCell(for: $0, selected: false, actionable: actionable)}
+		return TableSection(key: Keys.positions, rows: rows, style: SectionStyle(separators: .default))
 	}
 
 	// MARK: - AI
@@ -131,22 +140,19 @@ struct GameplayBuilder {
 			return LabelCell(
 				key: key,
 				style: CellStyle(separatorColor: Colors.separator, highlight: true, backgroundColor: Colors.primary),
-				state: LabelState(text: text, fontSize: GameplayBuilder.selectedFontSize),
+				state: LabelState(text: text, fontSize: Sizes.Text.title),
 				cellUpdater: LabelState.updateView
 			)
 		}
 
 		static func categoryCell(for category: MovementCategory, selected: Bool, actionable: GameplayActionable) -> CellConfigType {
 			let backgroundColor: UIColor?
-			let fontSize: CGFloat
 			let text: String
 			if selected {
 				backgroundColor = Colors.primary
-				fontSize = GameplayBuilder.selectedFontSize
 				text = category.rawValue.lowercased()
 			} else {
 				backgroundColor = nil
-				fontSize = GameplayBuilder.titleFontSize
 				text = category.rawValue
 			}
 
@@ -157,22 +163,19 @@ struct GameplayBuilder {
 					actionable?.select(category: category)
 					return .deselected
 				}),
-				state: ImageLabelCellState(text: text, image: category.image, fontSize: fontSize, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
+				state: ImageLabelCellState(text: text, image: category.image, fontSize: Sizes.Text.title, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
 				cellUpdater: ImageLabelCellState.updateView
 			)
 		}
 
-		static func unitCell(for unit: HiveEngine.Unit, selected: Bool, actionable: GameplayActionable) -> CellConfigType {
+		static func unitCell(for unit: HiveEngine.Unit, at position: Position, selected: Bool, actionable: GameplayActionable) -> CellConfigType {
 			let backgroundColor: UIColor?
-			let fontSize: CGFloat
 			let text: String
 			if selected {
 				backgroundColor = Colors.primary
-				fontSize = GameplayBuilder.selectedFontSize
 				text = unit.description.lowercased()
 			} else {
 				backgroundColor = nil
-				fontSize = GameplayBuilder.titleFontSize
 				text = unit.description
 			}
 
@@ -183,8 +186,28 @@ struct GameplayBuilder {
 					actionable?.select(identifier: unit.identifier)
 					return .deselected
 				}),
-				state: ImageDetailCellState(title: unit.description, description: unit.identifier.uuidString, icon: unit.image, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
+				state: ImageDetailCellState(title: text, description: "from \(position.description.lowercased())", icon: unit.image, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
 				cellUpdater: ImageDetailCellState.updateView
+			)
+		}
+
+		static func positionCell(for position: Position, selected: Bool, actionable: GameplayActionable) -> CellConfigType {
+			let backgroundColor: UIColor?
+			if selected {
+				backgroundColor = Colors.primary
+			} else {
+				backgroundColor = nil
+			}
+
+			return ImageLabelCell(
+				key: Keys.for(position: position),
+				style: CellStyle(separatorColor: Colors.separator, highlight: true, backgroundColor: backgroundColor),
+				actions: CellActions(selectionAction: { [weak actionable] _ in
+					actionable?.select(position: position)
+					return .deselected
+				}),
+				state: ImageLabelCellState(text: position.description, image: Asset.position.image, fontSize: Sizes.Text.title, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
+				cellUpdater: ImageLabelCellState.updateView
 			)
 		}
 	}
