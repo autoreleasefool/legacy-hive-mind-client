@@ -26,6 +26,7 @@
 		CA60EA982215298100057F44 /* Unit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA60EA972215298100057F44 /* Unit+Extensions.swift */; };
 		CA60EAA12215DC9900057F44 /* FunctionalTableData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA60EA822214FCE800057F44 /* FunctionalTableData.framework */; };
 		CA60EAA22215DC9900057F44 /* FunctionalTableData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA60EA822214FCE800057F44 /* FunctionalTableData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA886B0E222961DD00000163 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B0D222961DD00000163 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		CA60EA8F221519BD00057F44 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CA60EA91221519D500057F44 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
 		CA60EA972215298100057F44 /* Unit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unit+Extensions.swift"; sourceTree = "<group>"; };
+		CA886B0D222961DD00000163 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				CA60EA0A2214E8EF00057F44 /* Assets.xcassets */,
+				CA886B0D222961DD00000163 /* Assets.swift */,
 				CA60EA0C2214E8EF00057F44 /* LaunchScreen.storyboard */,
 				CA0B61022226D22300C44344 /* APIs.plist */,
 			);
@@ -396,6 +399,7 @@
 				CA60EA042214E8ED00057F44 /* AppDelegate.swift in Sources */,
 				CA0B61052226DF5100C44344 /* CellStyle+Extensions.swift in Sources */,
 				CA0B61012226CA9600C44344 /* HiveApiCell.swift in Sources */,
+				CA886B0E222961DD00000163 /* Assets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

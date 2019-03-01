@@ -1,0 +1,5 @@
+xcassets:
+  inputs: HiveMind/Resources
+  outputs:
+    templateName: swift4
+    output: Assets.swift
