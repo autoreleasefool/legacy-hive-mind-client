@@ -17,7 +17,7 @@ struct Sizes {
 	}
 
 	struct Text {
-		static let huge: CGFloat = 44.0
+		static let header: CGFloat = 24.0
 		static let title: CGFloat = 20.0
 		static let subtitle: CGFloat = 18.0
 		static let body: CGFloat = 14.0

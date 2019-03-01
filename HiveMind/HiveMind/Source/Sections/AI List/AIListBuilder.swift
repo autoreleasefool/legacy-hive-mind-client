@@ -22,15 +22,15 @@ struct AIListBuilder {
 
 	struct Cells {
 		static func apiCell(for api: HiveApi, actionable: AIListActionable) -> CellConfigType {
-			return HiveApiCell(
+			return ImageDetailCell(
 				key: api.name,
 				style: .default,
 				actions: CellActions(selectionAction: { [weak actionable] _ in
 					actionable?.play(with: api)
 					return .deselected
 				}),
-				state: HiveApiCellState(title: api.name, description: api.description, icon: api.icon),
-				cellUpdater: HiveApiCellState.updateView
+				state: ImageDetailCellState(title: api.name, description: api.description, icon: api.icon),
+				cellUpdater: ImageDetailCellState.updateView
 			)
 		}
 	}
