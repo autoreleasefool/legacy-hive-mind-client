@@ -8,7 +8,7 @@
 		<key>description</key>
 		<string>The HiveMind AI, set to its easiest difficulty.</string>
 		<key>iconName</key>
-		<string>White Ant</string>
+		<string>HiveMind/Easy</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -16,7 +16,7 @@
 		<key>description</key>
 		<string>The HiveMind AI, set to a medium difficulty. A little more challenging, but still beatable!</string>
 		<key>iconName</key>
-		<string>White Beetle</string>
+		<string>HiveMind/Medium</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -24,7 +24,7 @@
 		<key>description</key>
 		<string>The HiveMind AI, with a nearly impossible to beat difficulty. Good luck.</string>
 		<key>iconName</key>
-		<string>White Queen</string>
+		<string>HiveMind/Hard</string>
 	</dict>
 </array>
 </plist>
