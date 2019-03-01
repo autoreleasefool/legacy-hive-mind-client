@@ -19,12 +19,19 @@
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
   internal static let glyph = ImageAsset(name: "Glyph")
+  internal enum HiveMind {
+
+    internal static let easy = ImageAsset(name: "HiveMind/Easy")
+    internal static let hard = ImageAsset(name: "HiveMind/Hard")
+    internal static let medium = ImageAsset(name: "HiveMind/Medium")
+  }
   internal enum Movement {
 
     internal static let move = ImageAsset(name: "Movement/Move")
     internal static let place = ImageAsset(name: "Movement/Place")
     internal static let yoink = ImageAsset(name: "Movement/Yoink")
   }
+  internal static let position = ImageAsset(name: "Position")
   internal enum Unit {
 
     internal enum Black {
