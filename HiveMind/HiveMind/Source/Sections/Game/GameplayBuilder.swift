@@ -139,7 +139,7 @@ struct GameplayBuilder {
 		static func selectionTextCell(key: String, text: String) -> CellConfigType {
 			return LabelCell(
 				key: key,
-				style: CellStyle(separatorColor: Colors.separator, highlight: true, backgroundColor: Colors.primary),
+				style: CellStyle(separatorColor: Colors.separator, highlight: true, backgroundColor: Colors.secondary),
 				state: LabelState(text: text, fontSize: Sizes.Text.title),
 				cellUpdater: LabelState.updateView
 			)
@@ -149,7 +149,7 @@ struct GameplayBuilder {
 			let backgroundColor: UIColor?
 			let text: String
 			if selected {
-				backgroundColor = Colors.primary
+				backgroundColor = Colors.secondary
 				text = category.rawValue.lowercased()
 			} else {
 				backgroundColor = nil
@@ -172,7 +172,7 @@ struct GameplayBuilder {
 			let backgroundColor: UIColor?
 			let text: String
 			if selected {
-				backgroundColor = Colors.primary
+				backgroundColor = Colors.secondary
 				text = unit.description.lowercased()
 			} else {
 				backgroundColor = nil
@@ -194,7 +194,7 @@ struct GameplayBuilder {
 		static func positionCell(for position: Position, selected: Bool, actionable: GameplayActionable) -> CellConfigType {
 			let backgroundColor: UIColor?
 			if selected {
-				backgroundColor = Colors.primary
+				backgroundColor = Colors.secondary
 			} else {
 				backgroundColor = nil
 			}
