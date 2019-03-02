@@ -14,7 +14,8 @@
 		CA0B610B2227759900C44344 /* GameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B610A2227759900C44344 /* GameplayViewController.swift */; };
 		CA0B610D222775A400C44344 /* GameplayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B610C222775A400C44344 /* GameplayBuilder.swift */; };
 		CA0B611622277DE100C44344 /* ImageLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B611522277DE100C44344 /* ImageLabelCell.swift */; };
-		CA3377DF22296FB2006DACE6 /* Position+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3377DE22296FB2006DACE6 /* Position+Extensions.swift */; };
+		CA3377DF22296FB2006DACE6 /* Movement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3377DE22296FB2006DACE6 /* Movement+Extensions.swift */; };
+		CA3377E1222A31EB006DACE6 /* SpinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3377E0222A31EB006DACE6 /* SpinnerCell.swift */; };
 		CA598DD12226436800761E47 /* HiveEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA598DD02226436800761E47 /* HiveEngine.framework */; };
 		CA598DD22226437300761E47 /* HiveEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA598DD02226436800761E47 /* HiveEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA598DD42226594500761E47 /* AIListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA598DD32226594500761E47 /* AIListBuilder.swift */; };
@@ -76,7 +77,8 @@
 		CA0B610A2227759900C44344 /* GameplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayViewController.swift; sourceTree = "<group>"; };
 		CA0B610C222775A400C44344 /* GameplayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayBuilder.swift; sourceTree = "<group>"; };
 		CA0B611522277DE100C44344 /* ImageLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabelCell.swift; sourceTree = "<group>"; };
-		CA3377DE22296FB2006DACE6 /* Position+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Position+Extensions.swift"; sourceTree = "<group>"; };
+		CA3377DE22296FB2006DACE6 /* Movement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movement+Extensions.swift"; sourceTree = "<group>"; };
+		CA3377E0222A31EB006DACE6 /* SpinnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCell.swift; sourceTree = "<group>"; };
 		CA598DD02226436800761E47 /* HiveEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HiveEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA598DD32226594500761E47 /* AIListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIListBuilder.swift; sourceTree = "<group>"; };
 		CA598DD6222659A700761E47 /* HiveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveAPI.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				CA0B61002226CA9600C44344 /* ImageDetailCell.swift */,
 				CA0B611522277DE100C44344 /* ImageLabelCell.swift */,
 				CA886B072228053800000163 /* LabelCell.swift */,
+				CA3377E0222A31EB006DACE6 /* SpinnerCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -272,7 +275,7 @@
 			children = (
 				CA886B09222835E800000163 /* GameState+Extensions.swift */,
 				CA0B61042226DF5100C44344 /* CellStyle+Extensions.swift */,
-				CA3377DE22296FB2006DACE6 /* Position+Extensions.swift */,
+				CA3377DE22296FB2006DACE6 /* Movement+Extensions.swift */,
 				CA60EA972215298100057F44 /* Unit+Extensions.swift */,
 			);
 			path = Extensions;
@@ -358,7 +361,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CA60E9FB2214E8ED00057F44 /* Build configuration list for PBXProject "HiveMind" */;
+			buildConfigurationList = CA60E9FB2214E8ED00057F44 /* Build configuration list for PBXProject "HiveAI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -414,10 +417,11 @@
 				CA60EA90221519BD00057F44 /* Colors.swift in Sources */,
 				CA0B611622277DE100C44344 /* ImageLabelCell.swift in Sources */,
 				CA598DD42226594500761E47 /* AIListBuilder.swift in Sources */,
-				CA3377DF22296FB2006DACE6 /* Position+Extensions.swift in Sources */,
+				CA3377DF22296FB2006DACE6 /* Movement+Extensions.swift in Sources */,
 				CA598DD7222659A700761E47 /* HiveAPI.swift in Sources */,
 				CA886B0A222835E800000163 /* GameState+Extensions.swift in Sources */,
 				CA60EA92221519D500057F44 /* Sizes.swift in Sources */,
+				CA3377E1222A31EB006DACE6 /* SpinnerCell.swift in Sources */,
 				CA60EA982215298100057F44 /* Unit+Extensions.swift in Sources */,
 				CA0B610B2227759900C44344 /* GameplayViewController.swift in Sources */,
 				CA0B610D222775A400C44344 /* GameplayBuilder.swift in Sources */,
@@ -601,7 +605,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveMind;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -619,7 +623,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveMind;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.josephroque.HiveAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -711,7 +715,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA60E9FB2214E8ED00057F44 /* Build configuration list for PBXProject "HiveMind" */ = {
+		CA60E9FB2214E8ED00057F44 /* Build configuration list for PBXProject "HiveAI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA60EA262214E8EF00057F44 /* Debug */,
