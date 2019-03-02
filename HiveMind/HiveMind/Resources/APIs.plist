@@ -9,6 +9,8 @@
 		<string>The HiveMind AI, set to its easiest difficulty.</string>
 		<key>iconName</key>
 		<string>HiveMind/Easy</string>
+		<key>endpoint</key>
+		<string>http://example.com</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -17,6 +19,8 @@
 		<string>The HiveMind AI, set to a medium difficulty. A little more challenging, but still beatable!</string>
 		<key>iconName</key>
 		<string>HiveMind/Medium</string>
+		<key>endpoint</key>
+		<string>http://example.com</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -25,6 +29,8 @@
 		<string>The HiveMind AI, with a nearly impossible to beat difficulty. Good luck.</string>
 		<key>iconName</key>
 		<string>HiveMind/Hard</string>
+		<key>endpoint</key>
+		<string>http://example.com</string>
 	</dict>
 </array>
 </plist>

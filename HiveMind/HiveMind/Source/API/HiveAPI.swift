@@ -19,9 +19,22 @@ struct HiveApi: Codable {
 	let name: String
 	let description: String
 	let iconName: String
+	let endpoint: String
 
 	var icon: UIImage {
 		return UIImage(named: iconName)!
+	}
+
+	var endpointURL: URL {
+		return URL(string: endpoint)!
+	}
+
+	var playURL: URL {
+		return endpointURL.appendingPathComponent("play")
+	}
+
+	var newGameURL: URL {
+		return endpointURL.appendingPathComponent("new")
 	}
 
 	func play(move: Movement, in state: GameState, completion: @escaping (Movement) -> Void) {
