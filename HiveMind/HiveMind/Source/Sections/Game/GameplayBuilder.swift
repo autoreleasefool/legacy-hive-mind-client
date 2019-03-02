@@ -14,15 +14,30 @@ protocol GameplayActionable: class {
 	func confirmAiMove()
 	func select(category: MovementCategory)
 	func select(identifier: UUID)
-	func select(position: Position)
+	func select(movement: Movement)
 }
 
 struct GameplayBuilder {
 	private static let imageSize: CGFloat = 44.0
 
 	private enum Keys: String {
+		case loading
+		enum Loading: String {
+			case loadingView
+		}
+
 		case playerSelection
 		enum PlayerSelection: String {
+			case titleLabel
+			case movementCell
+			case ownerLabel
+			case unitCell
+			case prepositionLabel
+			case positionCell
+		}
+
+		case aiSection
+		enum AiSection: String {
 			case titleLabel
 			case movementCell
 			case ownerLabel
@@ -43,42 +58,83 @@ struct GameplayBuilder {
 			return "\(Keys.PlayerSelection.unitCell).\(unit.identifier.uuidString)"
 		}
 
-		static func `for`(position: Position) -> String {
-			return "\(Keys.PlayerSelection.positionCell).\(position)"
+		static func `for`(movement: Movement) -> String {
+			return "\(Keys.PlayerSelection.positionCell).\(movement)"
 		}
 	}
 
-	static func sections(state: GameplayViewController.State, actionable: GameplayActionable) -> [TableSection] {
-		if state.isPlayerTurn {
+	static func sections(aiName: String, state: GameplayViewController.State, actionable: GameplayActionable) -> [TableSection] {
+		if state.inputEnabled == false {
+			return [loadingSection()]
+		} else if state.isPlayerTurn {
 			return [
 				playerSelectionSection(state: state, actionable: actionable),
 				playerSection(state: state, actionable: actionable)
 			]
 		} else {
-			return []// [aiSections(state: state, actionable: actionable)]
+			return [aiSection(aiName: aiName, state: state, actionable: actionable)].compactMap { $0 }
 		}
+	}
+
+	// MARK - Loading
+
+	static func loadingSection() -> TableSection {
+		let rows: [CellConfigType] = [
+			SpinnerCell(key: Keys.Loading.loadingView, state: SpinnerState(isEnabled: true), cellUpdater: SpinnerState.updateView)
+		]
+		return TableSection(key: Keys.loading, rows: rows, style: SectionStyle(separators: .topAndBottom))
+	}
+
+	// MARK: - AI
+
+	static func aiSection(aiName: String, state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection? {
+		guard let aiMove = state.lastAiMove else { return nil }
+		let category = MovementCategory.from(aiMove)
+		let unit = aiMove.movedUnit
+		let position = aiMove.targetPosition
+
+		var rows: [CellConfigType] = [
+			Cells.selectionTextCell(key: Keys.AiSection.titleLabel.rawValue, text: "\(aiName) will", ai: true, actionable: actionable),
+			Cells.categoryCell(for: category, selected: true, ai: true, actionable: actionable)
+		]
+
+		switch category {
+		case .move, .place: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "their", ai: true, actionable: actionable))
+		case .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the", ai: true, actionable: actionable))
+		}
+
+		rows.append(Cells.unitCell(for: unit, at: position, selected: true, ai: true, actionable: actionable))
+
+		switch category {
+		case .move, .yoink: rows.append(Cells.selectionTextCell(key: Keys.AiSection.prepositionLabel.rawValue, text: "to", ai: true, actionable: actionable))
+		case .place: rows.append(Cells.selectionTextCell(key: Keys.AiSection.prepositionLabel.rawValue, text: "at", ai: true, actionable: actionable))
+		}
+
+		rows.append(Cells.positionCell(for: aiMove, selected: true, ai: true, actionable: actionable))
+
+		return TableSection(key: Keys.aiSection, rows: rows)
 	}
 
 	// MARK: - Player
 
 	static func playerSelectionSection(state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection {
 		var rows: [CellConfigType] = []
-		rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.titleLabel.rawValue, text: "I want to"))
+		rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.titleLabel.rawValue, text: "I want to", actionable: actionable))
 
 		if let category = state.selectedMovementCategory {
 			rows.append(Cells.categoryCell(for: category, selected: true, actionable: actionable))
 
 			switch category {
-			case .move, .place: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "my"))
-			case .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the"))
+			case .move, .place: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "my", actionable: actionable))
+			case .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the", actionable: actionable))
 			}
 
 			if let unitId = state.selectedUnitId, let unit = state.gameState.find(id: unitId), let position = state.gameState.units[unit] {
 				rows.append(Cells.unitCell(for: unit, at: position, selected: true, actionable: actionable))
 
 				switch category {
-				case .move, .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.prepositionLabel.rawValue, text: "to"))
-				case .place: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.prepositionLabel.rawValue, text: "at"))
+				case .move, .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.prepositionLabel.rawValue, text: "to", actionable: actionable))
+				case .place: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.prepositionLabel.rawValue, text: "at", actionable: actionable))
 				}
 			}
 		}
@@ -121,13 +177,13 @@ struct GameplayBuilder {
 	}
 
 	static func positionsSection(state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection {
-		let availablePositions: Set<Position> = Set(state.gameState.availableMoves.compactMap {
+		let availableMovements: Set<Movement> = Set(state.gameState.availableMoves.compactMap {
 			guard MovementCategory.from($0) == state.selectedMovementCategory,
 				$0.movedUnit.identifier == state.selectedUnitId else { return nil }
-			return $0.targetPosition
+			return $0
 		})
 
-		let rows: [CellConfigType] = availablePositions.sorted(by: Position.naturalSort).map { Cells.positionCell(for: $0, selected: false, actionable: actionable)}
+		let rows: [CellConfigType] = availableMovements.sorted(by: Movement.naturalSort).map { Cells.positionCell(for: $0, selected: false, actionable: actionable)}
 		return TableSection(key: Keys.positions, rows: rows, style: SectionStyle(separators: .default))
 	}
 
@@ -136,16 +192,22 @@ struct GameplayBuilder {
 	// MARK: - Cells
 
 	struct Cells {
-		static func selectionTextCell(key: String, text: String) -> CellConfigType {
+		static func selectionTextCell(key: String, text: String, ai: Bool = false, actionable: GameplayActionable) -> CellConfigType {
 			return LabelCell(
 				key: key,
-				style: CellStyle(separatorColor: Colors.separator, highlight: true, backgroundColor: Colors.secondary),
+				style: CellStyle(separatorColor: Colors.separator, highlight: ai, backgroundColor: Colors.secondary),
+				actions: CellActions(selectionAction: { [weak actionable] _ in
+					if ai {
+						actionable?.confirmAiMove()
+					}
+					return .deselected
+				}),
 				state: LabelState(text: text, fontSize: Sizes.Text.title),
 				cellUpdater: LabelState.updateView
 			)
 		}
 
-		static func categoryCell(for category: MovementCategory, selected: Bool, actionable: GameplayActionable) -> CellConfigType {
+		static func categoryCell(for category: MovementCategory, selected: Bool, ai: Bool = false, actionable: GameplayActionable) -> CellConfigType {
 			let backgroundColor: UIColor?
 			let text: String
 			if selected {
@@ -160,7 +222,11 @@ struct GameplayBuilder {
 				key: Keys.for(category: category),
 				style: CellStyle(separatorColor: Colors.separator, highlight: true, backgroundColor: backgroundColor),
 				actions: CellActions(selectionAction: { [weak actionable] _ in
-					actionable?.select(category: category)
+					if ai {
+						actionable?.confirmAiMove()
+					} else {
+						actionable?.select(category: category)
+					}
 					return .deselected
 				}),
 				state: ImageLabelCellState(text: text, image: category.image, fontSize: Sizes.Text.title, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
@@ -168,7 +234,7 @@ struct GameplayBuilder {
 			)
 		}
 
-		static func unitCell(for unit: HiveEngine.Unit, at position: Position, selected: Bool, actionable: GameplayActionable) -> CellConfigType {
+		static func unitCell(for unit: HiveEngine.Unit, at position: Position, selected: Bool, ai: Bool = false, actionable: GameplayActionable) -> CellConfigType {
 			let backgroundColor: UIColor?
 			let text: String
 			if selected {
@@ -183,7 +249,11 @@ struct GameplayBuilder {
 				key: Keys.for(unit: unit),
 				style: CellStyle(separatorColor: Colors.separator, highlight: true, backgroundColor: backgroundColor),
 				actions: CellActions(selectionAction: { [weak actionable] _ in
-					actionable?.select(identifier: unit.identifier)
+					if ai {
+						actionable?.confirmAiMove()
+					} else {
+						actionable?.select(identifier: unit.identifier)
+					}
 					return .deselected
 				}),
 				state: ImageDetailCellState(title: text, description: "from \(position.description.lowercased())", icon: unit.image, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
@@ -191,7 +261,7 @@ struct GameplayBuilder {
 			)
 		}
 
-		static func positionCell(for position: Position, selected: Bool, actionable: GameplayActionable) -> CellConfigType {
+		static func positionCell(for movement: Movement, selected: Bool, ai: Bool = false, actionable: GameplayActionable) -> CellConfigType {
 			let backgroundColor: UIColor?
 			if selected {
 				backgroundColor = Colors.secondary
@@ -200,13 +270,17 @@ struct GameplayBuilder {
 			}
 
 			return ImageLabelCell(
-				key: Keys.for(position: position),
+				key: Keys.for(movement: movement),
 				style: CellStyle(separatorColor: Colors.separator, highlight: true, backgroundColor: backgroundColor),
 				actions: CellActions(selectionAction: { [weak actionable] _ in
-					actionable?.select(position: position)
+					if ai {
+						actionable?.confirmAiMove()
+					} else {
+						actionable?.select(movement: movement)
+					}
 					return .deselected
 				}),
-				state: ImageLabelCellState(text: position.description, image: Asset.position.image, fontSize: Sizes.Text.title, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
+				state: ImageLabelCellState(text: movement.targetPosition.description, image: Asset.position.image, fontSize: Sizes.Text.title, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
 				cellUpdater: ImageLabelCellState.updateView
 			)
 		}

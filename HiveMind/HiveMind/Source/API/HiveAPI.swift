@@ -37,7 +37,7 @@ struct HiveApi: Codable {
 		return endpointURL.appendingPathComponent("new")
 	}
 
-	func play(move: Movement, in state: GameState, completion: @escaping (Movement) -> Void) {
+	func play(in state: GameState, completion: @escaping (Movement) -> Void) {
 
 	}
 

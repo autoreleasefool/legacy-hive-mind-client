@@ -21,6 +21,7 @@ class GameplayViewController: UIViewController {
 		var availableMoves: [Movement] = []
 		var selectedMovementCategory: MovementCategory?
 		var selectedUnitId: UUID?
+		var inputEnabled: Bool
 
 		var isPlayerTurn: Bool {
 			return gameState.currentPlayer != aiPlayer
@@ -28,6 +29,12 @@ class GameplayViewController: UIViewController {
 
 		init(playerIsFirst: Bool) {
 			self.aiPlayer = playerIsFirst ? .black : .white
+			self.inputEnabled = playerIsFirst ? true : false
+		}
+
+		func clearSelection() {
+			selectedMovementCategory = nil
+			selectedUnitId = nil
 		}
 	}
 
@@ -66,6 +73,20 @@ class GameplayViewController: UIViewController {
 
 		updateTitle()
 		render()
+
+		api.newGame(playerIsFirst: state.isPlayerTurn) { [weak self] movement in
+			guard let self = self else { return }
+			if let movement = movement {
+				self.state.lastAiMove = movement
+				self.state.inputEnabled = true
+				self.render()
+			}
+		}
+
+		if state.isPlayerTurn == false {
+			state.inputEnabled = false
+			render()
+		}
 	}
 
 	private func updateTitle() {
@@ -73,16 +94,56 @@ class GameplayViewController: UIViewController {
 	}
 
 	private func render() {
-		tableData.renderAndDiff(GameplayBuilder.sections(state: state, actionable: self))
+		tableData.renderAndDiff(GameplayBuilder.sections(aiName: api.name, state: state, actionable: self))
+	}
+
+	private func resolvePlayerMovement(_ movement: Movement) {
+		state.clearSelection()
+		state.inputEnabled = false
+
+		let newState = state.gameState.apply(movement)
+		if newState.isEndGame {
+			// TODO: end game
+			return
+		}
+
+		if state.gameState != newState {
+			state.gameState = newState
+			updateTitle()
+
+			api.play(in: state.gameState) { [weak self] aiMovement in
+				guard let self = self else { return }
+				self.state.lastAiMove = movement
+				self.state.inputEnabled = true
+				self.render()
+			}
+		} else {
+			// TODO: popup message that move is invalid
+			state.inputEnabled = true
+		}
+
+		render()
+	}
+
+	private func resolveAiMovement(_ movement: Movement) {
+		state.gameState = state.gameState.apply(movement)
+		state.clearSelection()
+		state.lastAiMove = nil
+		state.inputEnabled = true
+
+		updateTitle()
+		render()
 	}
 }
 
 extension GameplayViewController: GameplayActionable {
 	func confirmAiMove() {
-
+		guard let aiMovement = state.lastAiMove else { return }
+		resolveAiMovement(aiMovement)
 	}
 
 	func select(category: MovementCategory) {
+		guard state.inputEnabled else { return }
 		if state.selectedMovementCategory == category {
 			state.selectedMovementCategory = nil
 			state.selectedUnitId = nil
@@ -93,6 +154,7 @@ extension GameplayViewController: GameplayActionable {
 	}
 
 	func select(identifier: UUID) {
+		guard state.inputEnabled else { return }
 		if state.selectedUnitId == identifier {
 			state.selectedUnitId = nil
 		} else {
@@ -101,7 +163,8 @@ extension GameplayViewController: GameplayActionable {
 		render()
 	}
 
-	func select(position: Position) {
-
+	func select(movement: Movement) {
+		guard state.inputEnabled else { return }
+		resolvePlayerMovement(movement)
 	}
 }
