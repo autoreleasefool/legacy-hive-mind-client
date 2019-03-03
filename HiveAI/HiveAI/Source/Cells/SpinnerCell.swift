@@ -13,7 +13,7 @@ typealias SpinnerCell = HostCell<SpinnerCellView, SpinnerState, LayoutMarginsTab
 
 class SpinnerCellView: UIView {
 
-	fileprivate let spinner = UIActivityIndicatorView(style: .gray)
+	fileprivate let spinner = UIActivityIndicatorView(style: .white)
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -30,9 +30,9 @@ class SpinnerCellView: UIView {
 
 		NSLayoutConstraint.activate([
 			spinner.leadingAnchor.constraint(equalTo: leadingAnchor),
-			spinner.topAnchor.constraint(equalTo: topAnchor),
+			spinner.topAnchor.constraint(equalTo: topAnchor, constant: Sizes.Margins.large),
 			spinner.trailingAnchor.constraint(equalTo: trailingAnchor),
-			spinner.bottomAnchor.constraint(equalTo: bottomAnchor),
+			spinner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Sizes.Margins.large),
 			])
 	}
 
