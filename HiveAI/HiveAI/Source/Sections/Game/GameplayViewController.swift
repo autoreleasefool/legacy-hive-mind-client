@@ -14,7 +14,12 @@ class GameplayViewController: UIViewController {
 
 	struct State {
 		let aiPlayer: Player
-		var gameState: GameState = GameState()
+		var previousState: GameState?
+		var gameState: GameState = GameState() {
+			didSet {
+				previousState = oldValue
+			}
+		}
 
 		var lastAiMove: Movement?
 
@@ -25,6 +30,10 @@ class GameplayViewController: UIViewController {
 
 		var isPlayerTurn: Bool {
 			return gameState.currentPlayer != aiPlayer
+		}
+
+		var isAiTurn: Bool {
+			return isPlayerTurn == false
 		}
 
 		init(playerIsFirst: Bool) {
@@ -74,19 +83,12 @@ class GameplayViewController: UIViewController {
 		updateTitle()
 		render()
 
-		api.newGame(playerIsFirst: state.isPlayerTurn) { [weak self] movement in
-			guard let self = self else { return }
-			if let movement = movement {
-				self.state.lastAiMove = movement
-				self.state.inputEnabled = true
-				self.render()
-			}
-		}
-
-		if state.isPlayerTurn == false {
+		if state.isAiTurn {
 			state.inputEnabled = false
 			render()
 		}
+
+		api.newGame(playerIsFirst: state.isPlayerTurn, delegate: self)
 	}
 
 	private func updateTitle() {
@@ -110,13 +112,7 @@ class GameplayViewController: UIViewController {
 		if state.gameState != newState {
 			state.gameState = newState
 			updateTitle()
-
-			api.play(in: state.gameState) { [weak self] aiMovement in
-				guard let self = self else { return }
-				self.state.lastAiMove = movement
-				self.state.inputEnabled = true
-				self.render()
-			}
+			api.play(in: state.gameState, delegate: self)
 		} else {
 			// TODO: popup message that move is invalid
 			state.inputEnabled = true
@@ -166,5 +162,23 @@ extension GameplayViewController: GameplayActionable {
 	func select(movement: Movement) {
 		guard state.inputEnabled else { return }
 		resolvePlayerMovement(movement)
+	}
+}
+
+extension GameplayViewController: HiveApiDelegate {
+	func didBeginGame(api: HiveApi) {
+		if state.isAiTurn {
+			api.play(in: state.gameState, delegate: self)
+		}
+	}
+
+	func didPlay(api: HiveApi, move: Movement) {
+		state.lastAiMove = move
+		state.inputEnabled = true
+		render()
+	}
+
+	func didReceiveError(api: HiveApi, error: Error) {
+		print(error)
 	}
 }
