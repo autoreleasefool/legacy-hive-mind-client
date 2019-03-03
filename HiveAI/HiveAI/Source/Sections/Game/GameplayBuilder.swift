@@ -91,7 +91,7 @@ struct GameplayBuilder {
 		guard let aiMove = state.lastAiMove else { return nil }
 		let category = MovementCategory.from(aiMove)
 		let unit = aiMove.movedUnit
-		let position = aiMove.targetPosition
+		let previousPosition = state.previousState?.units[unit] ?? .inHand
 
 		var rows: [CellConfigType] = [
 			Cells.selectionTextCell(key: Keys.AiSection.titleLabel.rawValue, text: "\(aiName) will", ai: true, actionable: actionable),
@@ -103,7 +103,7 @@ struct GameplayBuilder {
 		case .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the", ai: true, actionable: actionable))
 		}
 
-		rows.append(Cells.unitCell(for: unit, at: position, selected: true, ai: true, actionable: actionable))
+		rows.append(Cells.unitCell(for: unit, at: previousPosition, selected: true, ai: true, actionable: actionable))
 
 		switch category {
 		case .move, .yoink: rows.append(Cells.selectionTextCell(key: Keys.AiSection.prepositionLabel.rawValue, text: "to", ai: true, actionable: actionable))
