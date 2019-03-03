@@ -80,11 +80,7 @@ class HiveApi: Codable {
 
 		let task = URLSession.shared.dataTask(with: request) { [weak self, weak delegate] data, _, error in
 			guard let self = self, let delegate = delegate else { return }
-			if playerIsFirst == false {
-				self.parseApiResponse(data: data, error: error, delegate: delegate)
-			} else {
-				delegate.didBeginGame(api: self)
-			}
+			delegate.didBeginGame(api: self)
 		}
 		task.resume()
 	}
