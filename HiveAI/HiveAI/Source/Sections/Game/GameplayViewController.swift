@@ -65,6 +65,7 @@ class GameplayViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		setupNavigation()
 
 		view.backgroundColor = Colors.primary
 		tableView.backgroundColor = Colors.primaryBackground
@@ -89,6 +90,11 @@ class GameplayViewController: UIViewController {
 		}
 
 		api.newGame(playerIsFirst: state.isPlayerTurn, delegate: self)
+	}
+
+	private func setupNavigation() {
+		navigationItem.hidesBackButton = true
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(promptFinishGame))
 	}
 
 	private func updateTitle() {
@@ -129,6 +135,17 @@ class GameplayViewController: UIViewController {
 
 		updateTitle()
 		render()
+	}
+
+	@objc private func promptFinishGame() {
+		let alert = UIAlertController(title: "Finish game?", message: "Are you sure you want to end this game? You'll lose all your progress.", preferredStyle: .alert)
+
+		alert.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in })
+		alert.addAction(UIAlertAction(title: "Finish", style: .destructive) {_ in
+			self.dismiss(animated: true)
+		})
+
+		present(alert, animated: true)
 	}
 }
 

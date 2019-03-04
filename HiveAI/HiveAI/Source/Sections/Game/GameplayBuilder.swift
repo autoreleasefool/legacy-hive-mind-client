@@ -21,6 +21,12 @@ struct GameplayBuilder {
 	private static let imageSize: CGFloat = 44.0
 
 	private enum Keys: String {
+		case endGame
+		enum EndGame: String {
+			case gameOver
+			case winner
+		}
+
 		case loading
 		enum Loading: String {
 			case loadingView
@@ -64,7 +70,9 @@ struct GameplayBuilder {
 	}
 
 	static func sections(aiName: String, state: GameplayViewController.State, actionable: GameplayActionable) -> [TableSection] {
-		if state.inputEnabled == false {
+		if state.gameState.isEndGame {
+			return [endGameSection(aiName: aiName, state: state)]
+		} else if state.inputEnabled == false {
 			return [loadingSection()]
 		} else if state.isPlayerTurn {
 			return [
@@ -76,13 +84,27 @@ struct GameplayBuilder {
 		}
 	}
 
+	// MARK: End Game
+
+	static func endGameSection(aiName: String, state: GameplayViewController.State) -> TableSection {
+		var rows: [CellConfigType] = [
+			LabelCell(key: Keys.EndGame.gameOver, state: LabelState(text: "The game is over.\nThe winner is", fontSize: Sizes.Text.header, numberOfLines: 0, alignment: .center), cellUpdater: LabelState.updateView)
+		]
+
+		state.gameState.winner.forEach {
+			rows.append(LabelCell(key: "\(Keys.EndGame.winner)-\($0)", state: LabelState(text: $0.rawValue, fontSize: Sizes.Text.header, alignment: .center), cellUpdater: LabelState.updateView))
+		}
+
+		return TableSection(key: Keys.endGame, rows: rows)
+	}
+
 	// MARK - Loading
 
 	static func loadingSection() -> TableSection {
 		let rows: [CellConfigType] = [
 			SpinnerCell(key: Keys.Loading.loadingView, state: SpinnerState(isLoading: true), cellUpdater: SpinnerState.updateView)
 		]
-		return TableSection(key: Keys.loading, rows: rows, style: SectionStyle(separators: .topAndBottom))
+		return TableSection(key: Keys.loading, rows: rows)
 	}
 
 	// MARK: - AI
