@@ -11,8 +11,16 @@ import HiveEngine
 
 enum ApiError: Error {
 	case noData
-	case decodingFailure
-	case dataError
+	case dataEncodingFailure(type: Any.Type)
+}
+
+extension ApiError: LocalizedError {
+	var errorDescription: String? {
+		switch self {
+		case .noData: return "No data was received from the server."
+		case .dataEncodingFailure(let type): return "Value '\(type)' could not be converted to data."
+		}
+	}
 }
 
 protocol HiveApiDelegate: class {
@@ -69,7 +77,7 @@ class HiveApi: Codable {
 	func newGame(playerIsFirst: Bool, delegate: HiveApiDelegate) {
 		let jsonString = "{\"playerIsFirst\": \(playerIsFirst)}"
 		guard let data = jsonString.data(using: .utf8) else {
-			delegate.didReceiveError(api: self, error: ApiError.dataError)
+			delegate.didReceiveError(api: self, error: ApiError.dataEncodingFailure(type: type(of: jsonString)))
 			return
 		}
 

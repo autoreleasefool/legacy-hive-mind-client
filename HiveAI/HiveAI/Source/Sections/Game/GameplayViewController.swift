@@ -197,5 +197,8 @@ extension GameplayViewController: HiveApiDelegate {
 
 	func didReceiveError(api: HiveApi, error: Error) {
 		print(error)
+		let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+		present(alert, animated: true)
 	}
 }
