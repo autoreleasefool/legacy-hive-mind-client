@@ -98,7 +98,7 @@ class GameplayViewController: UIViewController {
 	}
 
 	private func updateTitle() {
-		self.title = state.isPlayerTurn ? "Your Move" : "AI's Move"
+		self.title = state.gameState.isEndGame ? "Game over!" : (state.isPlayerTurn ? "Your Move" : "AI's Move")
 	}
 
 	private func render() {
@@ -111,17 +111,26 @@ class GameplayViewController: UIViewController {
 
 		let newState = state.gameState.apply(movement)
 		if newState.isEndGame {
-			// TODO: end game
+			state.gameState = newState
+			updateTitle()
+			render()
 			return
 		}
 
 		if state.gameState != newState {
 			state.gameState = newState
 			updateTitle()
-			api.play(in: state.gameState, delegate: self)
+
+			if state.isAiTurn {
+				api.play(in: state.gameState, delegate: self)
+			} else {
+				state.inputEnabled = true
+			}
 		} else {
-			// TODO: popup message that move is invalid
 			state.inputEnabled = true
+			let alert = UIAlertController(title: "Invalid move!", message: "Something went wrong, and you couldn't actually make that move. Try again!", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+			present(alert, animated: true)
 		}
 
 		render()
@@ -131,7 +140,13 @@ class GameplayViewController: UIViewController {
 		state.gameState = state.gameState.apply(movement)
 		state.clearSelection()
 		state.lastAiMove = nil
-		state.inputEnabled = true
+
+		if state.isAiTurn {
+			state.inputEnabled = false
+			api.play(in: state.gameState, delegate: self)
+		} else {
+			state.inputEnabled = true
+		}
 
 		updateTitle()
 		render()
