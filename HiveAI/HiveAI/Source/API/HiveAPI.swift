@@ -66,6 +66,7 @@ class HiveApi: Codable {
 		request.httpMethod = "POST"
 		request.httpBody = data
 		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+		request.timeoutInterval = 120
 
 		let task = URLSession.shared.dataTask(with: request) { [weak self, weak delegate] data, _, error in
 			guard let self = self, let delegate = delegate else { return }

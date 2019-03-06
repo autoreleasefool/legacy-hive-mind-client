@@ -109,35 +109,23 @@ class GameplayViewController: UIViewController {
 		state.clearSelection()
 		state.inputEnabled = false
 
-		let newState = state.gameState.apply(movement)
-		if newState.isEndGame {
-			state.gameState = newState
-			updateTitle()
+		state.gameState.apply(movement)
+		updateTitle()
+
+		if state.gameState.isEndGame {
 			render()
 			return
-		}
-
-		if state.gameState != newState {
-			state.gameState = newState
-			updateTitle()
-
-			if state.isAiTurn {
-				api.play(in: state.gameState, delegate: self)
-			} else {
-				state.inputEnabled = true
-			}
+		} else if state.isAiTurn {
+			api.play(in: state.gameState, delegate: self)
 		} else {
 			state.inputEnabled = true
-			let alert = UIAlertController(title: "Invalid move!", message: "Something went wrong, and you couldn't actually make that move. Try again!", preferredStyle: .alert)
-			alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
-			present(alert, animated: true)
 		}
 
 		render()
 	}
 
 	private func resolveAiMovement(_ movement: Movement) {
-		state.gameState = state.gameState.apply(movement)
+		state.gameState.apply(movement)
 		state.clearSelection()
 		state.lastAiMove = nil
 
