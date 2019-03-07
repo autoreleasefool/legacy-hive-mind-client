@@ -1,6 +1,14 @@
+![Logo](media/HiveClient.png)
+
 # HiveAI - Client
 
 An iOS app to interact with the HiveAI AI (and others).
+
+## Screenshots
+
+| First or Second? | Movement |
+|:----------------:|:--------:|
+| <img src='media/First.png' width='220' alt='First or Second?'/> | <img src='media/Movement.png' width='220' alt='Movement'/> |
 
 ## Getting started
 
