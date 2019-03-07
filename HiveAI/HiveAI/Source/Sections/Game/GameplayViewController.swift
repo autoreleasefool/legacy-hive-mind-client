@@ -141,14 +141,16 @@ class GameplayViewController: UIViewController {
 	}
 
 	@objc private func promptFinishGame() {
-		let alert = UIAlertController(title: "Finish game?", message: "Are you sure you want to end this game? You'll lose all your progress.", preferredStyle: .alert)
+		DispatchQueue.main.async { [weak self] in
+			let alert = UIAlertController(title: "Finish game?", message: "Are you sure you want to end this game? You'll lose all your progress.", preferredStyle: .alert)
 
-		alert.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in })
-		alert.addAction(UIAlertAction(title: "Finish", style: .destructive) {_ in
-			self.navigationController?.popViewController(animated: true)
-		})
+			alert.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in })
+			alert.addAction(UIAlertAction(title: "Finish", style: .destructive) { _ in
+				self?.navigationController?.popViewController(animated: true)
+			})
 
-		present(alert, animated: true)
+			self?.present(alert, animated: true)
+		}
 	}
 }
 
@@ -199,9 +201,11 @@ extension GameplayViewController: HiveApiDelegate {
 	}
 
 	func didReceiveError(api: HiveApi, error: Error) {
-		print(error)
-		let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
-		present(alert, animated: true)
+		DispatchQueue.main.async { [weak self] in
+			print(error)
+			let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+			self?.present(alert, animated: true)
+		}
 	}
 }
