@@ -3,4 +3,4 @@
 	url = git@github.com:Shopify/FunctionalTableData.git
 [submodule "Vendor/HiveEngine"]
 	path = Vendor/HiveEngine
-	url = git@github.com:josephroqueca/hive-engine.git
+	url = git@github.com:josephroquedev/hive-engine.git
