@@ -44,10 +44,9 @@ class AIListViewController: UIViewController {
 			fatalError("Failed to load APIs.plist")
 		}
 
-		if let apiData = try? Data(contentsOf: url) {
-			let decoder = PropertyListDecoder()
-			apis = try! decoder.decode([HiveApi].self, from: apiData)
-			apis = apis.sorted(by: { $0.name < $1.name })
+		let decoder = PropertyListDecoder()
+		if let apiData = try? Data(contentsOf: url), let apis = try? decoder.decode([HiveApi].self, from: apiData) {
+			self.apis = apis.sorted(by: { $0.name < $1.name })
 			render()
 		}
 	}

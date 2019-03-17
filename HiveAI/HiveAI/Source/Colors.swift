@@ -6,6 +6,9 @@
 //  Copyright © 2019 Joseph Roque. All rights reserved.
 //
 
+// swiftlint:disable nesting
+// Disable nesting for namespacing of constants
+
 import UIKit
 
 public struct Colors {

@@ -10,7 +10,7 @@
 		<key>iconName</key>
 		<string>HiveMind/Easy</string>
 		<key>endpoint</key>
-		<string>http://example.com</string>
+		<string>http://localhost:3000/hivemind</string>
 	</dict>
 </array>
 </plist>

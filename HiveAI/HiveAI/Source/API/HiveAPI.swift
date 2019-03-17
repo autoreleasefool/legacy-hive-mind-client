@@ -82,12 +82,12 @@ class HiveApi: Codable {
 			return
 		}
 
-		var request = URLRequest(url :newGameURL)
+		var request = URLRequest(url: newGameURL)
 		request.httpMethod = "POST"
 		request.httpBody = data
 		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-		let task = URLSession.shared.dataTask(with: request) { [weak self, weak delegate] data, _, error in
+		let task = URLSession.shared.dataTask(with: request) { [weak self, weak delegate] _, _, _ in
 			guard let self = self, let delegate = delegate else { return }
 			delegate.didBeginGame(api: self)
 		}

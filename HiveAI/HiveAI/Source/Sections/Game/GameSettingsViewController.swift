@@ -30,39 +30,19 @@ class GameSettingsViewController: UIViewController {
 		super.viewDidLoad()
 		self.view.backgroundColor = Colors.primaryBackground
 
-		let willYouGoLabel = UILabel()
-		willYouGoLabel.translatesAutoresizingMaskIntoConstraints = false
-		willYouGoLabel.font = willYouGoLabel.font.withSize(fontSize)
-		willYouGoLabel.textColor = Colors.Text.body
-		willYouGoLabel.text = "Will you go"
-		willYouGoLabel.textAlignment = .center
+		let willYouGoLabel = createBasicLabel(color: Colors.Text.body, text: "Will you go")
 		view.addSubview(willYouGoLabel)
 
-		let firstLabel = UILabel()
-		firstLabel.translatesAutoresizingMaskIntoConstraints = false
-		firstLabel.font = firstLabel.font.withSize(fontSize)
-		firstLabel.textColor = Colors.Text.action
-		firstLabel.text = "first"
+		let firstLabel = createBasicLabel(color: Colors.Text.action, text: "first")
 		firstLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(first)))
-		firstLabel.textAlignment = .center
 		firstLabel.isUserInteractionEnabled = true
 		view.addSubview(firstLabel)
 
-		let orLabel = UILabel()
-		orLabel.translatesAutoresizingMaskIntoConstraints = false
-		orLabel.font = orLabel.font.withSize(fontSize)
-		orLabel.textColor = Colors.Text.body
-		orLabel.text = "or"
-		orLabel.textAlignment = .center
+		let orLabel = createBasicLabel(color: Colors.Text.body, text: "or")
 		view.addSubview(orLabel)
 
-		let secondLabel = UILabel()
-		secondLabel.translatesAutoresizingMaskIntoConstraints = false
-		secondLabel.font = secondLabel.font.withSize(fontSize)
-		secondLabel.textColor = Colors.Text.action
-		secondLabel.text = "second?"
+		let secondLabel = createBasicLabel(color: Colors.Text.action, text: "second?")
 		secondLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(second)))
-		secondLabel.textAlignment = .center
 		secondLabel.isUserInteractionEnabled = true
 		view.addSubview(secondLabel)
 
@@ -77,8 +57,18 @@ class GameSettingsViewController: UIViewController {
 			orLabel.topAnchor.constraint(equalTo: view.centerYAnchor, constant: Sizes.Margins.smaller),
 
 			secondLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			secondLabel.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: Sizes.Margins.small),
+			secondLabel.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: Sizes.Margins.small)
 			])
+	}
+
+	private func createBasicLabel(color: UIColor, text: String) -> UILabel {
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		label.font = label.font.withSize(fontSize)
+		label.textAlignment = .center
+		label.textColor = color
+		label.text = text
+		return label
 	}
 
 	@objc private func first() {

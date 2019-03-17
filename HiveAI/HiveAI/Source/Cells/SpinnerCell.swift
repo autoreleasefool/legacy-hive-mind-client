@@ -32,7 +32,7 @@ class SpinnerCellView: UIView {
 			spinner.leadingAnchor.constraint(equalTo: leadingAnchor),
 			spinner.topAnchor.constraint(equalTo: topAnchor, constant: Sizes.Margins.large),
 			spinner.trailingAnchor.constraint(equalTo: trailingAnchor),
-			spinner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Sizes.Margins.large),
+			spinner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Sizes.Margins.large)
 			])
 	}
 

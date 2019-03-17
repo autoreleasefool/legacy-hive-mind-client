@@ -20,6 +20,9 @@ protocol GameplayActionable: class {
 struct GameplayBuilder {
 	private static let imageSize: CGFloat = 44.0
 
+	// swiftlint:disable nesting
+	// Disable nesting to define clear key hierarchy
+
 	private enum Keys: String {
 		case endGame
 		enum EndGame: String {
@@ -69,6 +72,8 @@ struct GameplayBuilder {
 		}
 	}
 
+	// swiftlint:enable nesting
+
 	static func sections(aiName: String, state: GameplayViewController.State, actionable: GameplayActionable) -> [TableSection] {
 		if state.gameState.isEndGame {
 			return [endGameSection(aiName: aiName, state: state)]
@@ -84,7 +89,7 @@ struct GameplayBuilder {
 		}
 	}
 
-	// MARK: - AI
+	// MARK: AI
 
 	static func aiSection(aiName: String, state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection? {
 		guard let aiMove = state.lastAiMove else { return nil }
@@ -114,7 +119,7 @@ struct GameplayBuilder {
 		return TableSection(key: Keys.aiSection, rows: rows)
 	}
 
-	// MARK: - Player
+	// MARK: Player
 
 	static func playerSelectionSection(state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection {
 		var rows: [CellConfigType] = []
@@ -200,7 +205,7 @@ struct GameplayBuilder {
 		return TableSection(key: Keys.endGame, rows: rows)
 	}
 
-	// MARK - Loading
+	// MARK: Loading
 
 	static func loadingSection() -> TableSection {
 		let rows: [CellConfigType] = [
