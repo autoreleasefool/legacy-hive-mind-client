@@ -13,7 +13,7 @@ import HiveEngine
 protocol GameplayActionable: class {
 	func confirmAiMove()
 	func select(category: MovementCategory)
-	func select(identifier: UUID)
+	func select(unit: HiveEngine.Unit)
 	func select(movement: Movement)
 }
 
@@ -64,7 +64,7 @@ struct GameplayBuilder {
 		}
 
 		static func `for`(unit: HiveEngine.Unit) -> String {
-			return "\(Keys.PlayerSelection.unitCell).\(unit.identifier.uuidString)"
+			return "\(Keys.PlayerSelection.unitCell).\(unit.owner).\(unit.class).\(unit.index)"
 		}
 
 		static func `for`(movement: Movement) -> String {
@@ -95,7 +95,7 @@ struct GameplayBuilder {
 		guard let aiMove = state.lastAiMove else { return nil }
 		let category = MovementCategory.from(aiMove)
 		let unit = aiMove.movedUnit
-		let previousPosition = state.previousState?.units[unit] ?? .inHand
+		let previousPosition = state.gameState.position(of: unit)
 
 		var rows: [CellConfigType] = [
 			Cells.selectionTextCell(key: Keys.AiSection.titleLabel.rawValue, text: "\(aiName) will", ai: true, actionable: actionable),
@@ -133,7 +133,7 @@ struct GameplayBuilder {
 			case .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the", actionable: actionable))
 			}
 
-			if let unitId = state.selectedUnitId, let unit = state.gameState.find(id: unitId), let position = state.gameState.units[unit] {
+			if let unit = state.selectedUnit, let position = state.gameState.position(of: unit) {
 				rows.append(Cells.unitCell(for: unit, at: position, selected: true, actionable: actionable))
 
 				switch category {
@@ -148,7 +148,7 @@ struct GameplayBuilder {
 
 	static func playerSection(state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection {
 		if state.selectedMovementCategory != nil {
-			if state.selectedUnitId != nil {
+			if state.selectedUnit != nil {
 				return positionsSection(state: state, actionable: actionable)
 			}
 			return unitsSection(state: state, actionable: actionable)
@@ -172,8 +172,8 @@ struct GameplayBuilder {
 			return $0.movedUnit
 		})
 
-		let rows: [CellConfigType] = availableUnits.sorted(by: { $0.class.rawValue < $1.class.rawValue }).compactMap {
-			guard let position = state.gameState.units[$0] else { return nil }
+		let rows: [CellConfigType] = availableUnits.sorted().compactMap {
+			guard let position = state.gameState.position(of: $0) else { return nil }
 			return Cells.unitCell(for: $0, at: position, selected: false, actionable: actionable)
 		}
 
@@ -183,11 +183,11 @@ struct GameplayBuilder {
 	static func positionsSection(state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection {
 		let availableMovements: Set<Movement> = Set(state.gameState.availableMoves.compactMap {
 			guard MovementCategory.from($0) == state.selectedMovementCategory,
-				$0.movedUnit.identifier == state.selectedUnitId else { return nil }
+				$0.movedUnit == state.selectedUnit else { return nil }
 			return $0
 		})
 
-		let rows: [CellConfigType] = availableMovements.sorted(by: Movement.naturalSort).map { Cells.positionCell(for: $0, selected: false, actionable: actionable)}
+		let rows: [CellConfigType] = availableMovements.sorted().map { Cells.positionCell(for: $0, selected: false, actionable: actionable)}
 		return TableSection(key: Keys.positions, rows: rows, style: SectionStyle(separators: .default))
 	}
 
@@ -259,7 +259,7 @@ struct GameplayBuilder {
 			)
 		}
 
-		static func unitCell(for unit: HiveEngine.Unit, at position: Position, selected: Bool, ai: Bool = false, actionable: GameplayActionable) -> CellConfigType {
+		static func unitCell(for unit: HiveEngine.Unit, at position: Position?, selected: Bool, ai: Bool = false, actionable: GameplayActionable) -> CellConfigType {
 			let backgroundColor: UIColor?
 			let text: String
 			if selected {
@@ -277,11 +277,11 @@ struct GameplayBuilder {
 					if ai {
 						actionable?.confirmAiMove()
 					} else {
-						actionable?.select(identifier: unit.identifier)
+						actionable?.select(unit: unit)
 					}
 					return .deselected
 				}),
-				state: ImageDetailCellState(title: text, description: "from \(position.description.lowercased())", icon: unit.image, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
+				state: ImageDetailCellState(title: text, description: "from \(position?.description.lowercased() ?? "in hand")", icon: unit.image, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
 				cellUpdater: ImageDetailCellState.updateView
 			)
 		}

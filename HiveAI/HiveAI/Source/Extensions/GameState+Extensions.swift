@@ -10,7 +10,7 @@ import Foundation
 import HiveEngine
 
 extension GameState {
-	func find(id: UUID) -> HiveEngine.Unit? {
-		return self.units.first { $0.key.identifier == id }?.key
+	func position(of unit: HiveEngine.Unit) -> Position? {
+		return unitsInPlay[unit.owner]![unit]
 	}
 }

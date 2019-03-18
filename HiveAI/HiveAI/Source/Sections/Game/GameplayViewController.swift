@@ -14,18 +14,13 @@ class GameplayViewController: UIViewController {
 
 	struct State {
 		let aiPlayer: Player
-		var previousState: GameState?
-		var gameState: GameState = GameState() {
-			didSet {
-				previousState = oldValue
-			}
-		}
+		var gameState: GameState = GameState()
 
 		var lastAiMove: Movement?
 
 		var availableMoves: [Movement] = []
 		var selectedMovementCategory: MovementCategory?
-		var selectedUnitId: UUID?
+		var selectedUnit: HiveEngine.Unit?
 		var inputEnabled: Bool
 
 		var isPlayerTurn: Bool {
@@ -43,7 +38,7 @@ class GameplayViewController: UIViewController {
 
 		mutating func clearSelection() {
 			selectedMovementCategory = nil
-			selectedUnitId = nil
+			selectedUnit = nil
 		}
 	}
 
@@ -163,20 +158,19 @@ extension GameplayViewController: GameplayActionable {
 	func select(category: MovementCategory) {
 		guard state.inputEnabled else { return }
 		if state.selectedMovementCategory == category {
-			state.selectedMovementCategory = nil
-			state.selectedUnitId = nil
+			state.clearSelection()
 		} else {
 			state.selectedMovementCategory = category
 		}
 		render()
 	}
 
-	func select(identifier: UUID) {
+	func select(unit: HiveEngine.Unit) {
 		guard state.inputEnabled else { return }
-		if state.selectedUnitId == identifier {
-			state.selectedUnitId = nil
+		if state.selectedUnit == unit {
+			state.selectedUnit = nil
 		} else {
-			state.selectedUnitId = identifier
+			state.selectedUnit = unit
 		}
 		render()
 	}

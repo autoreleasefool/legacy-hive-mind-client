@@ -37,3 +37,23 @@ extension HiveEngine.Unit {
 		}
 	}
 }
+
+extension HiveEngine.Unit.Class: Comparable {
+	public static func < (lhs: HiveEngine.Unit.Class, rhs: HiveEngine.Unit.Class) -> Bool {
+		return lhs.rawValue < rhs.rawValue
+	}
+}
+
+extension HiveEngine.Unit: Comparable {
+	public static func < (lhs: HiveEngine.Unit, rhs: HiveEngine.Unit) -> Bool {
+		if lhs.owner == rhs.owner {
+			if lhs.class == rhs.class {
+				return lhs.index < rhs.index
+			} else {
+				return lhs.class < rhs.class
+			}
+		} else {
+			return lhs.owner < rhs.owner
+		}
+	}
+}
