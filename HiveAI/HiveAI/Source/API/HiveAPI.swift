@@ -52,21 +52,24 @@ class HiveApi: Codable {
 		return endpointURL.appendingPathComponent("new")
 	}
 
-	func play(in state: GameState, delegate: HiveApiDelegate) {
-		let encoder = JSONEncoder()
-		let data: Data
-		do {
-			data = try encoder.encode(state)
-		} catch {
-			delegate.didReceiveError(api: self, error: error)
-			return
-		}
-
+	func play(_ move: Movement?, delegate: HiveApiDelegate) {
 		var request = URLRequest(url: playURL)
 		request.httpMethod = "POST"
-		request.httpBody = data
 		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-		request.timeoutInterval = 120
+		request.timeoutInterval = 30
+
+		if let move = move {
+			let encoder = JSONEncoder()
+			let data: Data
+			do {
+				data = try encoder.encode(move)
+			} catch {
+				delegate.didReceiveError(api: self, error: error)
+				return
+			}
+
+			request.httpBody = data
+		}
 
 		let task = URLSession.shared.dataTask(with: request) { [weak self, weak delegate] data, _, error in
 			guard let self = self, let delegate = delegate else { return }

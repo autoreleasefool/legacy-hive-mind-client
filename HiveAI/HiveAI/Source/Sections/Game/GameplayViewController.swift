@@ -111,7 +111,7 @@ class GameplayViewController: UIViewController {
 			render()
 			return
 		} else if state.isAiTurn {
-			api.play(in: state.gameState, delegate: self)
+			api.play(movement, delegate: self)
 		} else {
 			state.inputEnabled = true
 		}
@@ -126,7 +126,7 @@ class GameplayViewController: UIViewController {
 
 		if state.isAiTurn {
 			state.inputEnabled = false
-			api.play(in: state.gameState, delegate: self)
+			api.play(nil, delegate: self)
 		} else {
 			state.inputEnabled = true
 		}
@@ -184,7 +184,7 @@ extension GameplayViewController: GameplayActionable {
 extension GameplayViewController: HiveApiDelegate {
 	func didBeginGame(api: HiveApi) {
 		if state.isAiTurn {
-			api.play(in: state.gameState, delegate: self)
+			api.play(nil, delegate: self)
 		}
 	}
 
