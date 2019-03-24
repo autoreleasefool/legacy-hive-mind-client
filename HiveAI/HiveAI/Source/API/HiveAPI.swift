@@ -52,6 +52,10 @@ class HiveApi: Codable {
 		return endpointURL.appendingPathComponent("new")
 	}
 
+	var endGameURL: URL {
+		return endpointURL.appendingPathComponent("close")
+	}
+
 	func play(_ move: Movement?, delegate: HiveApiDelegate) {
 		var request = URLRequest(url: playURL)
 		request.httpMethod = "POST"
@@ -94,6 +98,14 @@ class HiveApi: Codable {
 			guard let self = self, let delegate = delegate else { return }
 			delegate.didBeginGame(api: self)
 		}
+		task.resume()
+	}
+
+	func endGame() {
+		var request = URLRequest(url: endGameURL)
+		request.httpMethod = "POST"
+
+		let task = URLSession.shared.dataTask(with: request) { _, _, _ in }
 		task.resume()
 	}
 

@@ -173,7 +173,7 @@ struct GameplayBuilder {
 		})
 
 		let rows: [CellConfigType] = availableUnits.sorted().compactMap {
-			guard let position = state.gameState.position(of: $0) else { return nil }
+			let position = state.gameState.position(of: $0)
 			return Cells.unitCell(for: $0, at: position, selected: false, actionable: actionable)
 		}
 

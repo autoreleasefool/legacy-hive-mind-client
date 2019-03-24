@@ -141,6 +141,7 @@ class GameplayViewController: UIViewController {
 
 			alert.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in })
 			alert.addAction(UIAlertAction(title: "Finish", style: .destructive) { _ in
+				self?.api.endGame()
 				self?.navigationController?.popViewController(animated: true)
 			})
 
