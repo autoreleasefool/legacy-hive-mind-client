@@ -133,7 +133,8 @@ struct GameplayBuilder {
 			case .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the", actionable: actionable))
 			}
 
-			if let unit = state.selectedUnit, let position = state.gameState.position(of: unit) {
+			if let unit = state.selectedUnit {
+				let position = state.gameState.position(of: unit)
 				rows.append(Cells.unitCell(for: unit, at: position, selected: true, actionable: actionable))
 
 				switch category {
@@ -199,7 +200,7 @@ struct GameplayBuilder {
 		]
 
 		state.gameState.winner.forEach {
-			rows.append(LabelCell(key: "\(Keys.EndGame.winner)-\($0)", state: LabelState(text: $0.rawValue, fontSize: Sizes.Text.header, alignment: .center), cellUpdater: LabelState.updateView))
+			rows.append(LabelCell(key: "\(Keys.EndGame.winner)-\($0)", state: LabelState(text: $0.description, fontSize: Sizes.Text.header, alignment: .center), cellUpdater: LabelState.updateView))
 		}
 
 		return TableSection(key: Keys.endGame, rows: rows)

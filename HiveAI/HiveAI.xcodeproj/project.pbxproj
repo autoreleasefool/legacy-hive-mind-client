@@ -35,8 +35,6 @@
 		CA886B0A222835E800000163 /* GameState+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B09222835E800000163 /* GameState+Extensions.swift */; };
 		CA886B0C2229616A00000163 /* MovementCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B0B2229616A00000163 /* MovementCategory.swift */; };
 		CA886B0E222961DD00000163 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B0D222961DD00000163 /* Assets.swift */; };
-		CAE78AF622405B4C0091420D /* Player+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE78AF522405B4C0091420D /* Player+Extensions.swift */; };
-		CAE78AF822405C100091420D /* Position+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE78AF722405C100091420D /* Position+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,8 +102,6 @@
 		CA886B09222835E800000163 /* GameState+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameState+Extensions.swift"; sourceTree = "<group>"; };
 		CA886B0B2229616A00000163 /* MovementCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementCategory.swift; sourceTree = "<group>"; };
 		CA886B0D222961DD00000163 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = SOURCE_ROOT; };
-		CAE78AF522405B4C0091420D /* Player+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+Extensions.swift"; sourceTree = "<group>"; };
-		CAE78AF722405C100091420D /* Position+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Position+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,8 +276,6 @@
 				CA886B09222835E800000163 /* GameState+Extensions.swift */,
 				CA0B61042226DF5100C44344 /* CellStyle+Extensions.swift */,
 				CA3377DE22296FB2006DACE6 /* Movement+Extensions.swift */,
-				CAE78AF522405B4C0091420D /* Player+Extensions.swift */,
-				CAE78AF722405C100091420D /* Position+Extensions.swift */,
 				CA60EA972215298100057F44 /* Unit+Extensions.swift */,
 			);
 			path = Extensions;
@@ -429,13 +423,11 @@
 				CA60EA92221519D500057F44 /* Sizes.swift in Sources */,
 				CA3377E1222A31EB006DACE6 /* SpinnerCell.swift in Sources */,
 				CA60EA982215298100057F44 /* Unit+Extensions.swift in Sources */,
-				CAE78AF622405B4C0091420D /* Player+Extensions.swift in Sources */,
 				CA0B610B2227759900C44344 /* GameplayViewController.swift in Sources */,
 				CA0B610D222775A400C44344 /* GameplayBuilder.swift in Sources */,
 				CA0B61092226E1E900C44344 /* GameSettingsViewController.swift in Sources */,
 				CA60EA042214E8ED00057F44 /* AppDelegate.swift in Sources */,
 				CA886B082228053800000163 /* LabelCell.swift in Sources */,
-				CAE78AF822405C100091420D /* Position+Extensions.swift in Sources */,
 				CA0B61052226DF5100C44344 /* CellStyle+Extensions.swift in Sources */,
 				CA886B0C2229616A00000163 /* MovementCategory.swift in Sources */,
 				CA0B61012226CA9600C44344 /* ImageDetailCell.swift in Sources */,
