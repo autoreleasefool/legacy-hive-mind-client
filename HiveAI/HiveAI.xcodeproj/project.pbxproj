@@ -35,6 +35,7 @@
 		CA886B0A222835E800000163 /* GameState+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B09222835E800000163 /* GameState+Extensions.swift */; };
 		CA886B0C2229616A00000163 /* MovementCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B0B2229616A00000163 /* MovementCategory.swift */; };
 		CA886B0E222961DD00000163 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B0D222961DD00000163 /* Assets.swift */; };
+		CA9CE2012249033D009055C2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9CE2002249033D009055C2 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		CA886B09222835E800000163 /* GameState+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameState+Extensions.swift"; sourceTree = "<group>"; };
 		CA886B0B2229616A00000163 /* MovementCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementCategory.swift; sourceTree = "<group>"; };
 		CA886B0D222961DD00000163 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = SOURCE_ROOT; };
+		CA9CE2002249033D009055C2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				CA0B61072226E1C700C44344 /* Sections */,
 				CA60EA032214E8ED00057F44 /* AppDelegate.swift */,
 				CA60EA8F221519BD00057F44 /* Colors.swift */,
+				CA9CE2002249033D009055C2 /* RootViewController.swift */,
 				CA60EA91221519D500057F44 /* Sizes.swift */,
 			);
 			path = Source;
@@ -423,6 +426,7 @@
 				CA60EA92221519D500057F44 /* Sizes.swift in Sources */,
 				CA3377E1222A31EB006DACE6 /* SpinnerCell.swift in Sources */,
 				CA60EA982215298100057F44 /* Unit+Extensions.swift in Sources */,
+				CA9CE2012249033D009055C2 /* RootViewController.swift in Sources */,
 				CA0B610B2227759900C44344 /* GameplayViewController.swift in Sources */,
 				CA0B610D222775A400C44344 /* GameplayBuilder.swift in Sources */,
 				CA0B61092226E1E900C44344 /* GameSettingsViewController.swift in Sources */,

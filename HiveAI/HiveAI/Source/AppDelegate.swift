@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		CellStyle.defaultBackgroundColor = Colors.primaryBackground
 		CellStyle.defaultSelectionColor = Colors.secondary
 
-		let rootController = UINavigationController(rootViewController: AIListViewController())
+		let rootController = RootViewController(rootViewController: AIListViewController())
 		rootController.navigationBar.barTintColor = Colors.primary
 		rootController.navigationBar.tintColor = Colors.Text.NavigationBar.components
 		rootController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.Text.NavigationBar.title]
