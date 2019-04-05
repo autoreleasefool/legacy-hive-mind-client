@@ -10,32 +10,15 @@ import UIKit
 import FunctionalTableData
 import HiveEngine
 
-class AIListViewController: UIViewController {
-
-	private let tableView = UITableView()
-	private let tableData = FunctionalTableData()
+class AIListViewController: FunctionalTableDataViewController {
 
 	private var apis: [HiveApi] = []
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = "Hive AI"
-
 		view.backgroundColor = Colors.primary
-		tableView.backgroundColor = Colors.primaryBackground
-
-		tableView.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(tableView)
-		NSLayoutConstraint.activate([
-			tableView.topAnchor.constraint(equalTo: view.topAnchor),
-			tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-			tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-			tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
-			])
-
-		tableData.tableView = tableView
-
-		render()
+		refresh()
 		loadApis()
 	}
 
@@ -47,12 +30,12 @@ class AIListViewController: UIViewController {
 		let decoder = PropertyListDecoder()
 		if let apiData = try? Data(contentsOf: url), let apis = try? decoder.decode([HiveApi].self, from: apiData) {
 			self.apis = apis.sorted(by: { $0.name < $1.name })
-			render()
+			refresh()
 		}
 	}
 
-	private func render() {
-		tableData.renderAndDiff(AIListBuilder.sections(apis: apis, actionable: self))
+	override func render() -> [TableSection] {
+		return AIListBuilder.sections(apis: apis, actionable: self)
 	}
 }
 

@@ -10,7 +10,7 @@ import UIKit
 import HiveEngine
 import FunctionalTableData
 
-class GameplayViewController: UIViewController {
+class GameplayViewController: FunctionalTableDataViewController {
 
 	struct State {
 		let aiPlayer: Player
@@ -45,9 +45,6 @@ class GameplayViewController: UIViewController {
 	private let api: HiveApi
 	private var state: State
 
-	private let tableView = UITableView()
-	private let tableData = FunctionalTableData()
-
 	init(api: HiveApi, playerIsFirst: Bool) {
 		self.api = api
 		self.state = State(playerIsFirst: playerIsFirst)
@@ -61,28 +58,14 @@ class GameplayViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupNavigation()
-
 		view.backgroundColor = Colors.primary
-		tableView.backgroundColor = Colors.primaryBackground
-
-		tableView.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(tableView)
-		NSLayoutConstraint.activate([
-			tableView.topAnchor.constraint(equalTo: view.topAnchor),
-			tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-			tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-			tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
-			])
-
-		tableData.tableView = tableView
-
-		updateTitle()
-		render()
 
 		if state.isAiTurn {
 			state.inputEnabled = false
-			render()
 		}
+
+		updateTitle()
+		refresh()
 
 		api.newGame(playerIsFirst: state.isPlayerTurn, delegate: self)
 	}
@@ -96,8 +79,8 @@ class GameplayViewController: UIViewController {
 		self.title = state.gameState.isEndGame ? "Game over!" : (state.isPlayerTurn ? "Your Move" : "AI's Move")
 	}
 
-	private func render() {
-		tableData.renderAndDiff(GameplayBuilder.sections(aiName: api.name, state: state, actionable: self))
+	override func render() -> [TableSection] {
+		return GameplayBuilder.sections(aiName: api.name, state: state, actionable: self)
 	}
 
 	private func resolvePlayerMovement(_ movement: Movement) {
@@ -108,15 +91,14 @@ class GameplayViewController: UIViewController {
 		updateTitle()
 
 		if state.gameState.isEndGame {
-			render()
-			return
+			// Do nothing
 		} else if state.isAiTurn {
 			api.play(movement, delegate: self)
 		} else {
 			state.inputEnabled = true
 		}
 
-		render()
+		refresh()
 	}
 
 	private func resolveAiMovement(_ movement: Movement) {
@@ -132,7 +114,7 @@ class GameplayViewController: UIViewController {
 		}
 
 		updateTitle()
-		render()
+		refresh()
 	}
 
 	@objc private func promptFinishGame() {
@@ -163,7 +145,7 @@ extension GameplayViewController: GameplayActionable {
 		} else {
 			state.selectedMovementCategory = category
 		}
-		render()
+		refresh()
 	}
 
 	func select(unit: HiveEngine.Unit) {
@@ -173,7 +155,7 @@ extension GameplayViewController: GameplayActionable {
 		} else {
 			state.selectedUnit = unit
 		}
-		render()
+		refresh()
 	}
 
 	func select(movement: Movement) {
@@ -192,7 +174,7 @@ extension GameplayViewController: HiveApiDelegate {
 	func didPlay(api: HiveApi, move: Movement) {
 		state.lastAiMove = move
 		state.inputEnabled = true
-		render()
+		refresh()
 	}
 
 	func didReceiveError(api: HiveApi, error: Error) {
