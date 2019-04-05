@@ -35,6 +35,8 @@
 		CA886B0A222835E800000163 /* GameState+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B09222835E800000163 /* GameState+Extensions.swift */; };
 		CA886B0C2229616A00000163 /* MovementCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B0B2229616A00000163 /* MovementCategory.swift */; };
 		CA886B0E222961DD00000163 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA886B0D222961DD00000163 /* Assets.swift */; };
+		CA8C526C22578518001C15CA /* GameSettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8C526B22578518001C15CA /* GameSettingsBuilder.swift */; };
+		CA8C526F225786D6001C15CA /* FunctionalTableDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8C526E225786D6001C15CA /* FunctionalTableDataViewController.swift */; };
 		CA9CE2012249033D009055C2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9CE2002249033D009055C2 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,8 @@
 		CA886B09222835E800000163 /* GameState+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameState+Extensions.swift"; sourceTree = "<group>"; };
 		CA886B0B2229616A00000163 /* MovementCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementCategory.swift; sourceTree = "<group>"; };
 		CA886B0D222961DD00000163 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = SOURCE_ROOT; };
+		CA8C526B22578518001C15CA /* GameSettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsBuilder.swift; sourceTree = "<group>"; };
+		CA8C526E225786D6001C15CA /* FunctionalTableDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalTableDataViewController.swift; sourceTree = "<group>"; };
 		CA9CE2002249033D009055C2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,19 +137,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CA0B60FF2226CA8900C44344 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		CA0B61062226E1BC00C44344 /* Game */ = {
 			isa = PBXGroup;
 			children = (
 				CA0B610A2227759900C44344 /* GameplayViewController.swift */,
 				CA0B610C222775A400C44344 /* GameplayBuilder.swift */,
 				CA0B61082226E1E900C44344 /* GameSettingsViewController.swift */,
+				CA8C526B22578518001C15CA /* GameSettingsBuilder.swift */,
 				CA886B0B2229616A00000163 /* MovementCategory.swift */,
 			);
 			path = Game;
@@ -222,6 +220,7 @@
 			children = (
 				CA598DD52226599900761E47 /* API */,
 				CA60EA762214F03F00057F44 /* Cells */,
+				CA8C526D225786BE001C15CA /* Components */,
 				CA60EA8C2215199200057F44 /* Extensions */,
 				CA0B61072226E1C700C44344 /* Sections */,
 				CA60EA032214E8ED00057F44 /* AppDelegate.swift */,
@@ -246,7 +245,6 @@
 		CA60EA752214F03800057F44 /* AI List */ = {
 			isa = PBXGroup;
 			children = (
-				CA0B60FF2226CA8900C44344 /* Views */,
 				CA60EA732214F02E00057F44 /* AIListViewController.swift */,
 				CA598DD32226594500761E47 /* AIListBuilder.swift */,
 			);
@@ -282,6 +280,14 @@
 				CA60EA972215298100057F44 /* Unit+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CA8C526D225786BE001C15CA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CA8C526E225786D6001C15CA /* FunctionalTableDataViewController.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,10 +437,12 @@
 				CA60EA982215298100057F44 /* Unit+Extensions.swift in Sources */,
 				CA9CE2012249033D009055C2 /* RootViewController.swift in Sources */,
 				CA0B610B2227759900C44344 /* GameplayViewController.swift in Sources */,
+				CA8C526C22578518001C15CA /* GameSettingsBuilder.swift in Sources */,
 				CA0B610D222775A400C44344 /* GameplayBuilder.swift in Sources */,
 				CA0B61092226E1E900C44344 /* GameSettingsViewController.swift in Sources */,
 				CA60EA042214E8ED00057F44 /* AppDelegate.swift in Sources */,
 				CA886B082228053800000163 /* LabelCell.swift in Sources */,
+				CA8C526F225786D6001C15CA /* FunctionalTableDataViewController.swift in Sources */,
 				CA0B61052226DF5100C44344 /* CellStyle+Extensions.swift in Sources */,
 				CA886B0C2229616A00000163 /* MovementCategory.swift in Sources */,
 				CA0B61012226CA9600C44344 /* ImageDetailCell.swift in Sources */,

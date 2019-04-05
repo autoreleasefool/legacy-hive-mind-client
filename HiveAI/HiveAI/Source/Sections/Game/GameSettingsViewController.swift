@@ -9,10 +9,9 @@
 import UIKit
 import FunctionalTableData
 
-class GameSettingsViewController: UIViewController {
+class GameSettingsViewController: FunctionalTableDataViewController {
 
-	private let fontSize: CGFloat = 44.0
-
+	/// Current API
 	private let api: HiveApi
 
 	init(api: HiveApi) {
@@ -29,57 +28,18 @@ class GameSettingsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = Colors.primaryBackground
-
-		let willYouGoLabel = createBasicLabel(color: Colors.Text.body, text: "Will you go")
-		view.addSubview(willYouGoLabel)
-
-		let firstLabel = createBasicLabel(color: Colors.Text.action, text: "first")
-		firstLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(first)))
-		firstLabel.isUserInteractionEnabled = true
-		view.addSubview(firstLabel)
-
-		let orLabel = createBasicLabel(color: Colors.Text.body, text: "or")
-		view.addSubview(orLabel)
-
-		let secondLabel = createBasicLabel(color: Colors.Text.action, text: "second?")
-		secondLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(second)))
-		secondLabel.isUserInteractionEnabled = true
-		view.addSubview(secondLabel)
-
-		NSLayoutConstraint.activate([
-			willYouGoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			willYouGoLabel.bottomAnchor.constraint(equalTo: firstLabel.topAnchor, constant: -Sizes.Spacing.small),
-
-			firstLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			firstLabel.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -Sizes.Spacing.smaller),
-
-			orLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			orLabel.topAnchor.constraint(equalTo: view.centerYAnchor, constant: Sizes.Spacing.smaller),
-
-			secondLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			secondLabel.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: Sizes.Spacing.small)
-			])
+		refresh()
 	}
 
-	private func createBasicLabel(color: UIColor, text: String) -> UILabel {
-		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
-		label.font = label.font.withSize(fontSize)
-		label.textAlignment = .center
-		label.textColor = color
-		label.text = text
-		return label
+	override func render() -> [TableSection] {
+		return GameSettingsBuilder.sections(actionable: self)
 	}
+}
 
-	@objc private func first() {
-		beginGame(playerIsFirst: true)
-	}
+// MARK: - GameSettingsActionable
 
-	@objc private func second() {
-		beginGame(playerIsFirst: false)
-	}
-
-	private func beginGame(playerIsFirst: Bool) {
+extension GameSettingsViewController: GameSettingsActionable {
+	func beginGame(playerIsFirst: Bool) {
 		let controller = GameplayViewController(api: api, playerIsFirst: playerIsFirst)
 		show(controller, sender: self)
 	}
