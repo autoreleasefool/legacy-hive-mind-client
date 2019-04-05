@@ -62,7 +62,7 @@ class ImageLabelCellView: UIView {
 			image.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
 			image.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
 
-			label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: Sizes.Margins.base),
+			label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: Sizes.Spacing.base),
 			label.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
 			label.centerYAnchor.constraint(equalTo: image.centerYAnchor),
 			label.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),

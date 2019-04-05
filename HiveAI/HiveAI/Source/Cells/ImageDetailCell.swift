@@ -64,11 +64,11 @@ class ImageDetailCellView: UIView {
 
 		NSLayoutConstraint.activate([
 			title.topAnchor.constraint(equalTo: topAnchor),
-			title.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: Sizes.Margins.small),
+			title.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: Sizes.Spacing.small),
 			title.trailingAnchor.constraint(equalTo: trailingAnchor),
 
-			desc.topAnchor.constraint(equalTo: title.bottomAnchor, constant: Sizes.Margins.smaller),
-			desc.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: Sizes.Margins.small),
+			desc.topAnchor.constraint(equalTo: title.bottomAnchor, constant: Sizes.Spacing.smaller),
+			desc.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: Sizes.Spacing.small),
 			desc.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
 			desc.trailingAnchor.constraint(equalTo: trailingAnchor),
 

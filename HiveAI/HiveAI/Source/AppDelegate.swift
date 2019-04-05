@@ -23,9 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		rootController.navigationBar.tintColor = Colors.Text.NavigationBar.components
 		rootController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.Text.NavigationBar.title]
 
-		self.window = UIWindow(frame: UIScreen.main.bounds)
-		self.window?.rootViewController = rootController
-		self.window?.makeKeyAndVisible()
+		let window = UIWindow(frame: UIScreen.main.bounds)
+		window.rootViewController = rootController
+		window.makeKeyAndVisible()
+		self.window = window
 		return true
 	}
 

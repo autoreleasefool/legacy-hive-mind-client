@@ -30,9 +30,9 @@ class SpinnerCellView: UIView {
 
 		NSLayoutConstraint.activate([
 			spinner.leadingAnchor.constraint(equalTo: leadingAnchor),
-			spinner.topAnchor.constraint(equalTo: topAnchor, constant: Sizes.Margins.large),
+			spinner.topAnchor.constraint(equalTo: topAnchor, constant: Sizes.Spacing.large),
 			spinner.trailingAnchor.constraint(equalTo: trailingAnchor),
-			spinner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Sizes.Margins.large)
+			spinner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Sizes.Spacing.large)
 			])
 	}
 

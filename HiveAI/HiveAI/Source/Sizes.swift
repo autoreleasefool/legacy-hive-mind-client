@@ -9,13 +9,15 @@
 import CoreGraphics
 
 struct Sizes {
-	struct Margins {
+	/// Common sizes for spacing between or of components
+	struct Spacing {
 		static let large: CGFloat = 32.0
 		static let base: CGFloat = 16.0
 		static let small: CGFloat = 8.0
 		static let smaller: CGFloat = 4.0
 	}
 
+	/// Common sizes for text
 	struct Text {
 		static let header: CGFloat = 24.0
 		static let title: CGFloat = 20.0
@@ -24,6 +26,7 @@ struct Sizes {
 		static let caption: CGFloat = 12.0
 	}
 
+	/// Common sizes for images
 	struct Images {
 		static let listIcon: CGFloat = 44.0
 	}

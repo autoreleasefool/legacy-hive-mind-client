@@ -48,16 +48,16 @@ class GameSettingsViewController: UIViewController {
 
 		NSLayoutConstraint.activate([
 			willYouGoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			willYouGoLabel.bottomAnchor.constraint(equalTo: firstLabel.topAnchor, constant: -Sizes.Margins.small),
+			willYouGoLabel.bottomAnchor.constraint(equalTo: firstLabel.topAnchor, constant: -Sizes.Spacing.small),
 
 			firstLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			firstLabel.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -Sizes.Margins.smaller),
+			firstLabel.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -Sizes.Spacing.smaller),
 
 			orLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			orLabel.topAnchor.constraint(equalTo: view.centerYAnchor, constant: Sizes.Margins.smaller),
+			orLabel.topAnchor.constraint(equalTo: view.centerYAnchor, constant: Sizes.Spacing.smaller),
 
 			secondLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			secondLabel.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: Sizes.Margins.small)
+			secondLabel.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: Sizes.Spacing.small)
 			])
 	}
 
