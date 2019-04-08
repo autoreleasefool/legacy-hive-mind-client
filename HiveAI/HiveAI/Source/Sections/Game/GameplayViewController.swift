@@ -42,10 +42,10 @@ class GameplayViewController: FunctionalTableDataViewController {
 		}
 	}
 
-	private let api: HiveApi
+	private let api: HiveAPI
 	private var state: State
 
-	init(api: HiveApi, playerIsFirst: Bool) {
+	init(api: HiveAPI, playerIsFirst: Bool) {
 		self.api = api
 		self.state = State(playerIsFirst: playerIsFirst)
 		super.init(nibName: nil, bundle: nil)
@@ -164,20 +164,20 @@ extension GameplayViewController: GameplayActionable {
 	}
 }
 
-extension GameplayViewController: HiveApiDelegate {
-	func didBeginGame(api: HiveApi) {
+extension GameplayViewController: HiveAPIDelegate {
+	func didBeginGame(api: HiveAPI) {
 		if state.isAiTurn {
 			api.play(nil, delegate: self)
 		}
 	}
 
-	func didPlay(api: HiveApi, move: Movement) {
+	func didPlay(api: HiveAPI, move: Movement) {
 		state.lastAiMove = move
 		state.inputEnabled = true
 		refresh()
 	}
 
-	func didReceiveError(api: HiveApi, error: Error) {
+	func didReceiveError(api: HiveAPI, error: Error) {
 		DispatchQueue.main.async { [weak self] in
 			print(error)
 			let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)

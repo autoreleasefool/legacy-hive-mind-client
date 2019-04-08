@@ -12,9 +12,9 @@ import FunctionalTableData
 class GameSettingsViewController: FunctionalTableDataViewController {
 
 	/// Current API
-	private let api: HiveApi
+	private let api: HiveAPI
 
-	init(api: HiveApi) {
+	init(api: HiveAPI) {
 		self.api = api
 		super.init(nibName: nil, bundle: nil)
 

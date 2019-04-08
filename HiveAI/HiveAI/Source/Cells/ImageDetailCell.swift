@@ -1,5 +1,5 @@
 //
-//  HiveApiCell.swift
+//  ImageDetailCell.swift
 //  HiveAI
 //
 //  Created by Joseph Roque on 2019-02-27.
@@ -12,7 +12,6 @@ import FunctionalTableData
 typealias ImageDetailCell = HostCell<ImageDetailCellView, ImageDetailCellState, LayoutMarginsTableItemLayout>
 
 class ImageDetailCellView: UIView {
-
 	fileprivate let title = UILabel()
 	fileprivate let desc = UILabel()
 	fileprivate let image = UIImageView()

@@ -10,18 +10,18 @@ import Foundation
 import FunctionalTableData
 
 protocol AIListActionable: class {
-	func play(with api: HiveApi)
+	func play(with api: HiveAPI)
 }
 
 struct AIListBuilder {
 
-	static func sections(apis: [HiveApi], actionable: AIListActionable) -> [TableSection] {
+	static func sections(apis: [HiveAPI], actionable: AIListActionable) -> [TableSection] {
 		let rows: [CellConfigType] = apis.map { Cells.apiCell(for: $0, actionable: actionable) }
-		return [TableSection(key: "HiveApis", rows: rows, style: SectionStyle(separators: .default))]
+		return [TableSection(key: "HiveAPIs", rows: rows, style: SectionStyle(separators: .default))]
 	}
 
 	struct Cells {
-		static func apiCell(for api: HiveApi, actionable: AIListActionable) -> CellConfigType {
+		static func apiCell(for api: HiveAPI, actionable: AIListActionable) -> CellConfigType {
 			return ImageDetailCell(
 				key: api.name,
 				style: .default,

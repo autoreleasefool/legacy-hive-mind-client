@@ -12,23 +12,23 @@ import HiveEngine
 
 class AIListViewController: FunctionalTableDataViewController {
 
-	private var apis: [HiveApi] = []
+	private var apis: [HiveAPI] = []
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = "Hive AI"
 		view.backgroundColor = Colors.primary
 		refresh()
-		loadApis()
+		loadAPIs()
 	}
 
-	private func loadApis() {
+	private func loadAPIs() {
 		guard let url = Bundle.main.url(forResource: "APIs", withExtension: "plist") else {
 			fatalError("Failed to load APIs.plist")
 		}
 
 		let decoder = PropertyListDecoder()
-		if let apiData = try? Data(contentsOf: url), let apis = try? decoder.decode([HiveApi].self, from: apiData) {
+		if let apiData = try? Data(contentsOf: url), let apis = try? decoder.decode([HiveAPI].self, from: apiData) {
 			self.apis = apis.sorted(by: { $0.name < $1.name })
 			refresh()
 		}
@@ -40,7 +40,7 @@ class AIListViewController: FunctionalTableDataViewController {
 }
 
 extension AIListViewController: AIListActionable {
-	func play(with api: HiveApi) {
+	func play(with api: HiveAPI) {
 		let controller = GameSettingsViewController(api: api)
 		show(controller, sender: self)
 	}
