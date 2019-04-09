@@ -10,7 +10,8 @@ import Foundation
 import HiveEngine
 
 extension GameState {
+	/// Get the position of a unit
 	func position(of unit: HiveEngine.Unit) -> Position? {
-		return unitsInPlay[unit.owner]![unit]
+		return unitsInPlay[unit.owner]?[unit]
 	}
 }

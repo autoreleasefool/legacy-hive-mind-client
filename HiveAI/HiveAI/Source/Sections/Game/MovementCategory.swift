@@ -9,11 +9,13 @@
 import UIKit
 import HiveEngine
 
+/// Map `HiveEngine.Movement`s to a simpler categorization
 enum MovementCategory: String {
 	case move = "Move"
 	case place = "Place"
 	case yoink = "Yoink"
 
+	/// A graphic representation of the category
 	var image: UIImage {
 		switch self {
 		case .move: return Asset.Movement.move.image
@@ -22,6 +24,7 @@ enum MovementCategory: String {
 		}
 	}
 
+	/// Map a `Movement` to its respective `MovementCategory`
 	static func from(_ movement: Movement) -> MovementCategory {
 		switch movement {
 		case .move: return .move

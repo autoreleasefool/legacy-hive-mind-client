@@ -9,6 +9,7 @@
 import FunctionalTableData
 
 extension CellStyle {
+	/// Default CellStyle
 	static var `default`: CellStyle {
 		return CellStyle(separatorColor: Colors.separator, highlight: true)
 	}

@@ -10,6 +10,7 @@ import UIKit
 import HiveEngine
 
 extension HiveEngine.Unit {
+	/// Image that represents the Unit.
 	var image: UIImage {
 		switch owner {
 		case .white:
