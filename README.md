@@ -23,7 +23,7 @@ An iOS app to interact with the HiveAI AI (and others).
 
 ### Requirements
 
-* Swift 4.2+
+* Swift 5.0+
 
 ## Contributing
 
