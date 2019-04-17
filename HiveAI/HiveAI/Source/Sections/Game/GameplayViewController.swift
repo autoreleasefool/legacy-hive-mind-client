@@ -60,10 +60,7 @@ class GameplayViewController: FunctionalTableDataViewController {
 		setupNavigation()
 		view.backgroundColor = Colors.primary
 
-		if state.isAiTurn {
-			state.inputEnabled = false
-		}
-
+		state.inputEnabled = false
 		updateTitle()
 		refresh()
 
@@ -168,7 +165,12 @@ extension GameplayViewController: HiveAPIDelegate {
 	func didBeginGame(api: HiveAPI) {
 		if state.isAiTurn {
 			api.play(nil, delegate: self)
+		} else {
+			state.inputEnabled = true
 		}
+
+		updateTitle()
+		refresh()
 	}
 
 	func didPlay(api: HiveAPI, move: Movement) {
