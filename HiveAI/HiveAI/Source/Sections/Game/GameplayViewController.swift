@@ -14,7 +14,7 @@ class GameplayViewController: FunctionalTableDataViewController {
 
 	struct State {
 		let aiPlayer: Player
-		var gameState: GameState = GameState()
+		var gameState: GameState = GameState(options: [.ladyBug, .mosquito, .pillBug, .disableMovementValidation, .allowSpecialAbilityAfterYoink, .restrictedOpening])
 
 		var lastAiMove: Movement?
 
