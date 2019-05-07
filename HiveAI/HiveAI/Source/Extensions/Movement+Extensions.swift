@@ -10,10 +10,18 @@ import HiveEngine
 
 extension Movement: Comparable {
 	public static func < (lhs: Movement, rhs: Movement) -> Bool {
-		if lhs.movedUnit == rhs.movedUnit {
-			return lhs.targetPosition < rhs.targetPosition
+		guard let lhsMovedUnit = lhs.movedUnit, let rhsMovedUnit = rhs.movedUnit else {
+			return lhs.movedUnit != nil
+		}
+
+		if lhsMovedUnit == rhsMovedUnit {
+			guard let lhsTargetPosition = lhs.targetPosition, let rhsTargetPosition = rhs.targetPosition else {
+				return lhs.targetPosition != nil
+			}
+
+			return lhsTargetPosition < rhsTargetPosition
 		} else {
-			return lhs.movedUnit < rhs.movedUnit
+			return lhsMovedUnit < rhsMovedUnit
 		}
 	}
 }

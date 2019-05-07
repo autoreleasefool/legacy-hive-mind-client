@@ -28,6 +28,7 @@ internal enum Asset {
   internal enum Movement {
 
     internal static let move = ImageAsset(name: "Movement/Move")
+    internal static let pass = ImageAsset(name: "Movement/Pass")
     internal static let place = ImageAsset(name: "Movement/Place")
     internal static let yoink = ImageAsset(name: "Movement/Yoink")
   }

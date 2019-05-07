@@ -14,6 +14,7 @@ enum MovementCategory: String {
 	case move = "Move"
 	case place = "Place"
 	case yoink = "Yoink"
+	case pass = "Pass"
 
 	/// A graphic representation of the category
 	var image: UIImage {
@@ -21,6 +22,7 @@ enum MovementCategory: String {
 		case .move: return Asset.Movement.move.image
 		case .place: return Asset.Movement.place.image
 		case .yoink: return Asset.Movement.yoink.image
+		case .pass: return Asset.Movement.pass.image
 		}
 	}
 
@@ -30,6 +32,7 @@ enum MovementCategory: String {
 		case .move: return .move
 		case .place: return .place
 		case .yoink: return .yoink
+		case .pass: return .pass
 		}
 	}
 }

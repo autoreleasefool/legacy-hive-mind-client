@@ -142,6 +142,9 @@ extension GameplayViewController: GameplayActionable {
 		} else {
 			state.selectedMovementCategory = category
 		}
+		if state.selectedMovementCategory == .pass {
+			resolvePlayerMovement(.pass)
+		}
 		refresh()
 	}
 

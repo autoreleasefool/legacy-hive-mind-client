@@ -93,30 +93,35 @@ struct GameplayBuilder {
 
 	static func aiSection(aiName: String, state: GameplayViewController.State, actionable: GameplayActionable) -> TableSection? {
 		guard let aiMove = state.lastAiMove else { return nil }
+		var tableSection = TableSection(key: Keys.aiSection, rows: [])
 		let category = MovementCategory.from(aiMove)
-		let unit = aiMove.movedUnit
-		let previousPosition = state.gameState.position(of: unit)
 
-		var rows: [CellConfigType] = [
+
+		tableSection.rows = [
 			Cells.selectionTextCell(key: Keys.AiSection.titleLabel.rawValue, text: "\(aiName) will", ai: true, actionable: actionable),
 			Cells.categoryCell(for: category, selected: true, ai: true, actionable: actionable)
 		]
 
-		switch category {
-		case .move, .place: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "their", ai: true, actionable: actionable))
-		case .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the", ai: true, actionable: actionable))
-		}
-
-		rows.append(Cells.unitCell(for: unit, at: previousPosition, selected: true, ai: true, actionable: actionable))
+		guard let unit = aiMove.movedUnit else { return tableSection }
+		let previousPosition = state.gameState.position(of: unit)
 
 		switch category {
-		case .move, .yoink: rows.append(Cells.selectionTextCell(key: Keys.AiSection.prepositionLabel.rawValue, text: "to", ai: true, actionable: actionable))
-		case .place: rows.append(Cells.selectionTextCell(key: Keys.AiSection.prepositionLabel.rawValue, text: "at", ai: true, actionable: actionable))
+		case .move, .place: tableSection.rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "their", ai: true, actionable: actionable))
+		case .yoink: tableSection.rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the", ai: true, actionable: actionable))
+		case .pass: break
 		}
 
-		rows.append(Cells.positionCell(for: aiMove, selected: true, ai: true, actionable: actionable))
+		tableSection.rows.append(Cells.unitCell(for: unit, at: previousPosition, selected: true, ai: true, actionable: actionable))
 
-		return TableSection(key: Keys.aiSection, rows: rows)
+		switch category {
+		case .move, .yoink: tableSection.rows.append(Cells.selectionTextCell(key: Keys.AiSection.prepositionLabel.rawValue, text: "to", ai: true, actionable: actionable))
+		case .place: tableSection.rows.append(Cells.selectionTextCell(key: Keys.AiSection.prepositionLabel.rawValue, text: "at", ai: true, actionable: actionable))
+		case .pass: break
+		}
+
+		tableSection.rows.append(Cells.positionCell(for: aiMove, selected: true, ai: true, actionable: actionable))
+
+		return tableSection
 	}
 
 	// MARK: Player
@@ -131,6 +136,7 @@ struct GameplayBuilder {
 			switch category {
 			case .move, .place: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "my", actionable: actionable))
 			case .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.ownerLabel.rawValue, text: "the", actionable: actionable))
+			case .pass: break
 			}
 
 			if let unit = state.selectedUnit {
@@ -140,6 +146,7 @@ struct GameplayBuilder {
 				switch category {
 				case .move, .yoink: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.prepositionLabel.rawValue, text: "to", actionable: actionable))
 				case .place: rows.append(Cells.selectionTextCell(key: Keys.PlayerSelection.prepositionLabel.rawValue, text: "at", actionable: actionable))
+				case .pass: break
 				}
 			}
 		}
@@ -306,7 +313,7 @@ struct GameplayBuilder {
 					}
 					return .deselected
 				}),
-				state: ImageLabelCellState(text: movement.targetPosition.description, image: Asset.position.image, fontSize: Sizes.Text.title, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
+				state: ImageLabelCellState(text: movement.targetPosition!.description, image: Asset.position.image, fontSize: Sizes.Text.title, imageWidth: GameplayBuilder.imageSize, imageHeight: GameplayBuilder.imageSize),
 				cellUpdater: ImageLabelCellState.updateView
 			)
 		}
