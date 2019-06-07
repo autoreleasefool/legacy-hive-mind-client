@@ -11,7 +11,6 @@
 		CAC96A6122AA857000758B3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC96A6022AA857000758B3D /* SceneDelegate.swift */; };
 		CAC96A6322AA857000758B3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC96A6222AA857000758B3D /* ContentView.swift */; };
 		CAC96A6522AA857300758B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC96A6422AA857300758B3D /* Assets.xcassets */; };
-		CAC96A6822AA857300758B3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC96A6722AA857300758B3D /* Preview Assets.xcassets */; };
 		CAC96A6B22AA857300758B3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC96A6922AA857300758B3D /* LaunchScreen.storyboard */; };
 		CAC96A7622AA857300758B3D /* HiveAITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC96A7522AA857300758B3D /* HiveAITests.swift */; };
 		CAC96A8122AA857300758B3D /* HiveAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC96A8022AA857300758B3D /* HiveAIUITests.swift */; };
@@ -41,7 +40,6 @@
 		CAC96A6022AA857000758B3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CAC96A6222AA857000758B3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CAC96A6422AA857300758B3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CAC96A6722AA857300758B3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAC96A6A22AA857300758B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAC96A6C22AA857300758B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAC96A7122AA857300758B3D /* HiveAITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiveAITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,19 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				CAC96A6C22AA857300758B3D /* Info.plist */,
-				CAC96A8F22AA889200758B3D /* Source */,
 				CAC96A8E22AA888900758B3D /* Resources */,
-				CAC96A6622AA857300758B3D /* Preview Content */,
+				CAC96A8F22AA889200758B3D /* Source */,
 			);
 			path = HiveAI;
-			sourceTree = "<group>";
-		};
-		CAC96A6622AA857300758B3D /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				CAC96A6722AA857300758B3D /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		CAC96A7422AA857300758B3D /* HiveAITests */ = {
@@ -260,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC96A6B22AA857300758B3D /* LaunchScreen.storyboard in Resources */,
-				CAC96A6822AA857300758B3D /* Preview Assets.xcassets in Resources */,
 				CAC96A6522AA857300758B3D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
