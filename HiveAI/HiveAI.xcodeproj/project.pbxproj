@@ -15,6 +15,7 @@
 		CAC96A6B22AA857300758B3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC96A6922AA857300758B3D /* LaunchScreen.storyboard */; };
 		CAC96A7622AA857300758B3D /* HiveAITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC96A7522AA857300758B3D /* HiveAITests.swift */; };
 		CAC96A8122AA857300758B3D /* HiveAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC96A8022AA857300758B3D /* HiveAIUITests.swift */; };
+		CAC96A9122AA88C100758B3D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC96A9022AA88C100758B3D /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		CAC96A7C22AA857300758B3D /* HiveAIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiveAIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC96A8022AA857300758B3D /* HiveAIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveAIUITests.swift; sourceTree = "<group>"; };
 		CAC96A8222AA857300758B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAC96A9022AA88C100758B3D /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +101,9 @@
 		CAC96A5D22AA857000758B3D /* HiveAI */ = {
 			isa = PBXGroup;
 			children = (
-				CAC96A5E22AA857000758B3D /* AppDelegate.swift */,
-				CAC96A6022AA857000758B3D /* SceneDelegate.swift */,
-				CAC96A6222AA857000758B3D /* ContentView.swift */,
-				CAC96A6422AA857300758B3D /* Assets.xcassets */,
-				CAC96A6922AA857300758B3D /* LaunchScreen.storyboard */,
 				CAC96A6C22AA857300758B3D /* Info.plist */,
+				CAC96A8F22AA889200758B3D /* Source */,
+				CAC96A8E22AA888900758B3D /* Resources */,
 				CAC96A6622AA857300758B3D /* Preview Content */,
 			);
 			path = HiveAI;
@@ -134,6 +133,26 @@
 				CAC96A8222AA857300758B3D /* Info.plist */,
 			);
 			path = HiveAIUITests;
+			sourceTree = "<group>";
+		};
+		CAC96A8E22AA888900758B3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAC96A9022AA88C100758B3D /* Assets.swift */,
+				CAC96A6422AA857300758B3D /* Assets.xcassets */,
+				CAC96A6922AA857300758B3D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CAC96A8F22AA889200758B3D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CAC96A5E22AA857000758B3D /* AppDelegate.swift */,
+				CAC96A6022AA857000758B3D /* SceneDelegate.swift */,
+				CAC96A6222AA857000758B3D /* ContentView.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +288,7 @@
 			files = (
 				CAC96A5F22AA857000758B3D /* AppDelegate.swift in Sources */,
 				CAC96A6122AA857000758B3D /* SceneDelegate.swift in Sources */,
+				CAC96A9122AA88C100758B3D /* Assets.swift in Sources */,
 				CAC96A6322AA857000758B3D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
